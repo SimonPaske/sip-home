@@ -1,0 +1,50 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: 100%, 100%;
+    border-radius: 50%;
+   
+}
+
+.carousel-control-next,
+.carousel-control-prev
+
+/*, .carousel-indicators */
+    {
+    filter: invert(100%);
+    
+}
+
+.box {
+    box-shadow: hsl(0, 0, 80%) 0px 0px 10px 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.space {
+    padding: 5%;
+    width: 100%;
+    display: inline-block;
+}
+
+.thumbnails {
+    padding: 5%;
+    height: 50%;
+    width: 50%;
+    box-shadow: black 0px 0px 10px 3px;
+}
+
+.carousel {
+    padding-top: 5%;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    float: right;
+    display: inline-block;
+}
