@@ -1,8 +1,67 @@
-{% extends 'store/base.html' %}
-{% load static %}
-{% block content %}
+   {% extends 'store/base.html' %} {% load static %} {% block content %}
 
-<h3>Cart</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box-element">
+          <br>
+          <a class="btn btn-outline-dark" href="{% url 'store' %}">Continue Shopping <span>➤</span></a>
+          <br>
+          <br>
 
+          <table class="table shadow-lg">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="row"><h5>Items</h5></th>
+                <th scope="row">
+                  <h5>Product Name:</h5>
+                </th>
+                <th scope="row">
+                  <h5>Total:</h5>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><strong>3</strong></th>
+                <td>Product Name</td>
+                <td><strong>45$</strong></td>
+                <td>
+                  <a href="{% url 'checkout' %}"><button class="price btn btn-success">Checkout</button></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-{% endblock content %}
+        <br>
+        <br>
+
+        <table class="table shadow-lg">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img class="mx-auto" src="{% static 'images/louisiana.webp' %}" width="100" height="100">
+              </td>
+              <td>Product Name</td>
+              <td>
+                <input type="number" value="1" min="0">
+                <button class="btn btn-danger" type="button">REMOVE</button>
+              </td>
+              <td>$45</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    {% endblock content %} {% comment %} <i class="fa-solid fa-arrow-down"></i>
+    <i class="fa-solid fa-arrow-up"></i> {% endcomment %}

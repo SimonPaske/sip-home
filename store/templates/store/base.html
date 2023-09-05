@@ -17,33 +17,33 @@
 
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'store' %}">Ecom</a>
+    <a class="navbar-brand" href="{% url 'store' %}">SiP Ecom</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Store</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link active" aria-current="page" href="#">Store</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Abstract</a></li>
-            <li><a class="dropdown-item" href="#">Nature</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{% url 'mystery' %}">Mystery</a></li>
+            <li><a class="dropdown-item" href="{% url 'nature' %}">Nature</a></li>
+            <li><a class="dropdown-item" href="{% url 'otherstuff' %}">Something else here</a></li>
           </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
         </li>
       </ul>
 <div class="form-inline my-2 my-lg-0 ">
     <a href="#" class="btn btn-warning">Login</a>
 
-    <button class="btn btn-outline-light" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+    <a href="{% url 'cart' %}"><button class="btn btn-outline-light" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a>
     
     <p id="cart-total">0</p>
 </div>
@@ -58,7 +58,53 @@
     {% endblock content %}
 </div>
         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
 
-    </body>
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3">
+  <a class="text-white" style="text-decoration: none;" href="https://sip.myportfolio.com/"> © 2023 Simon Paske
+    </a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+<!-- JavaScript to update the Categories link -->
+<script>
+  $(document).ready(function () {
+    $('.dropdown-item').click(function (e) {
+      e.preventDefault();
+      var category = $(this).data('category');
+      var url = "{% url 'store' %}" + "?category=" + category;
+      $('a.dropdown-toggle').attr('href', url);
+      window.location.href = url;
+    });
+  });
+</script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+   
+      </body>
 </html>

@@ -1,6 +1,6 @@
 {% extends 'store/base.html' %} {% load static %} {% block content %}
 
-<div id="carouselExampleIndicators" class="carousel slide">
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button
       type="button"
@@ -24,53 +24,43 @@
     ></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div class="carousel-item active" data-bs-interval="3000">
       <img
-        src="{% static 'images/product.webp' %}"
-        class="img-fluid mx-auto d-block"
+        src="{% static 'images/nyhavn.jpg' %}"
+        class="img-fluid mx-auto d-block d-block"
         alt="..."
       />
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" data-bs-interval="3000">
       <img
         src="{% static 'images/product.webp' %}"
-        class="img-fluid mx-auto d-block"
+        class="img-fluid mx-auto d-block d-block"
         alt="..."
       />
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" data-bs-interval="3000">
       <img
         src="{% static 'images/product.webp' %}"
-        class="img-fluid mx-auto d-block"
+        class="img-fluid mx-auto d-block d-block"
         alt="..."
       />
     </div>
   </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExampleIndicators"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExampleIndicators"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
 </div>
 
 <div class="space"></div>
 
 <div class="container">
   
-  <div class="row">
+ <div class="row shadow-5">
     <div class="col-sm text-center">
       <img
         src="{% static 'images/product.webp' %}"
@@ -79,154 +69,123 @@
       />
       <div class="box product">
         <h6><strong>Product Name</strong></h6>
-        <hr />
         <a class="btn btn-outline-success" href="#" role="button">View</a>
         <button class="btn btn-outline-dark add-btn" type="button">
           Add to cart
         </button>
         <h4 class="price">$100</h4>
+        <hr />
       </div>
     </div>
 
-    <div class="col-sm text-center">
-      <img
-        src="{% static 'images/product.webp' %}"
-        class="thumbnails"
-        alt="..."
-      />
-      <div class="box product">
-        <h6><strong>Product Name</strong></h6>
-        <hr />
-        <a class="btn btn-outline-success" href="#" role="button">View</a>
-        <button class="btn btn-outline-dark add-btn" type="button">
-          Add to cart
-        </button>
-        <h4 class="price">$100</h4>
+      <div class="col-sm text-center">
+        <img src="{% static 'images/product.webp' %}" class="thumbnails" alt="..." />
+        <div class="box product">
+          <h6><strong>Product Name</strong></h6>
+          <a class="btn btn-outline-success" href="#" role="button">View</a>
+          <button class="btn btn-outline-dark add-btn" type="button">
+            Add to cart
+          </button>
+          <h4 class="price">$100</h4>
+          <hr />
+        </div>
       </div>
-    </div>
 
-    <div class="col-sm text-center">
-      <img
-        src="{% static 'images/product.webp' %}"
-        class="thumbnails"
-        alt="..."
-      />
-      <div class="box product">
-        <h6><strong>Product Name</strong></h6>
-        <hr />
-        <a class="btn btn-outline-success" href="#" role="button">View</a>
-        <button class="btn btn-outline-dark add-btn" type="button">
-          Add to cart
-        </button>
-        <h4 class="price">$100</h4>
+      <div class="col-sm text-center">
+        <img src="{% static 'images/product.webp' %}" class="thumbnails" alt="..." />
+        <div class="box product">
+          <h6><strong>Product Name</strong></h6>
+          <a class="btn btn-outline-success" href="#" role="button">View</a>
+          <button class="btn btn-outline-dark add-btn" type="button">
+            Add to cart
+          </button>
+          <h4 class="price">$100</h4>
+          <hr />
+        </div>
       </div>
+  </div>
+
+<div class="row">
+  <div class="col-sm text-center">
+    <img src="{% static 'images/product.webp' %}" class="thumbnails" alt="..." />
+    <div class="box product">
+      <h6><strong>Product Name</strong></h6>
+      <a class="btn btn-outline-success" href="#" role="button">View</a>
+      <button class="btn btn-outline-dark add-btn" type="button">
+        Add to cart
+      </button>
+      <h4 class="price">$100</h4>
+      <hr />
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-sm text-center">
-      <img
-        src="{% static 'images/product.webp' %}"
-        class="thumbnails"
-        alt="..."
-      />
-      <div class="box product">
-        <h6><strong>Product Name</strong></h6>
-        <hr />
-        <a class="btn btn-outline-success" href="#" role="button">View</a>
-        <button class="btn btn-outline-dark add-btn" type="button">
-          Add to cart
-        </button>
-        <h4 class="price">$100</h4>
-      </div>
-    </div>
-
-    <div class="col-sm text-center">
-      <img
-        src="{% static 'images/product.webp' %}"
-        class="thumbnails"
-        alt="..."
-      />
-      <div class="box product">
-        <h6><strong>Product Name</strong></h6>
-        <hr />
-        <a class="btn btn-outline-success" href="#" role="button">View</a>
-        <button class="btn btn-outline-dark add-btn" type="button">
-          Add to cart
-        </button>
-        <h4 class="price">$100</h4>
-      </div>
-    </div>
-
-    <div class="col-sm text-center">
-      <img
-        src="{% static 'images/product.webp' %}"
-        class="thumbnails"
-        alt="..."
-      />
-      <div class="box product">
-        <h6><strong>Product Name</strong></h6>
-        <hr />
-        <a class="btn btn-outline-success" href="#" role="button">View</a>
-        <button class="btn btn-outline-dark add-btn" type="button">
-          Add to cart
-        </button>
-        <h4 class="price">$100</h4>
-      </div>
+  <div class="col-sm text-center">
+    <img src="{% static 'images/product.webp' %}" class="thumbnails" alt="..." />
+    <div class="box product">
+      <h6><strong>Product Name</strong></h6>
+      <a class="btn btn-outline-success" href="#" role="button">View</a>
+      <button class="btn btn-outline-dark add-btn" type="button">
+        Add to cart
+      </button>
+      <h4 class="price">$100</h4>
+      <hr />
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-sm text-center">
-      <img
-        src="{% static 'images/product.webp' %}"
-        class="thumbnails"
-        alt="..."
-      />
-      <div class="box product">
-        <h6><strong>Product Name</strong></h6>
-        <hr />
-        <a class="btn btn-outline-success" href="#" role="button">View</a>
-        <button class="btn btn-outline-dark add-btn" type="button">
-          Add to cart
-        </button>
-        <h4 class="price">$100</h4>
-      </div>
-    </div>
-
-    <div class="col-sm text-center">
-      <img
-        src="{% static 'images/product.webp' %}"
-        class="thumbnails"
-        alt="..."
-      />
-      <div class="box product">
-        <h6><strong>Product Name</strong></h6>
-        <hr />
-        <a class="btn btn-outline-success" href="#" role="button">View</a>
-        <button class="btn btn-outline-dark add-btn" type="button">
-          Add to cart
-        </button>
-        <h4 class="price">$100</h4>
-      </div>
-    </div>
-
-    <div class="col-sm text-center">
-      <img
-        src="{% static 'images/product.webp' %}"
-        class="thumbnails"
-        alt="..."
-      />
-      <div class="box product">
-        <h6><strong>Product Name</strong></h6>
-        <hr />
-        <a class="btn btn-outline-success" href="#" role="button">View</a>
-        <button class="btn btn-outline-dark add-btn" type="button">
-          Add to cart
-        </button>
-        <h4 class="price">$100</h4>
-      </div>
+  <div class="col-sm text-center">
+    <img src="{% static 'images/product.webp' %}" class="thumbnails" alt="..." />
+    <div class="box product">
+      <h6><strong>Product Name</strong></h6>
+      <a class="btn btn-outline-success" href="#" role="button">View</a>
+      <button class="btn btn-outline-dark add-btn" type="button">
+        Add to cart
+      </button>
+      <h4 class="price">$100</h4>
+      <hr />
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-sm text-center">
+    <img src="{% static 'images/product.webp' %}" class="thumbnails" alt="..." />
+    <div class="box product">
+      <h6><strong>Product Name</strong></h6>
+      <a class="btn btn-outline-success" href="#" role="button">View</a>
+      <button class="btn btn-outline-dark add-btn" type="button">
+        Add to cart
+      </button>
+      <h4 class="price">$100</h4>
+      <hr />
+    </div>
+  </div>
+
+  <div class="col-sm text-center">
+    <img src="{% static 'images/product.webp' %}" class="thumbnails" alt="..." />
+    <div class="box product">
+      <h6><strong>Product Name</strong></h6>
+      <a class="btn btn-outline-success" href="#" role="button">View</a>
+      <button class="btn btn-outline-dark add-btn" type="button">
+        Add to cart
+      </button>
+      <h4 class="price">$100</h4>
+      <hr />
+    </div>
+  </div>
+
+  <div class="col-sm text-center">
+    <img src="{% static 'images/product.webp' %}" class="thumbnails" alt="..." />
+    <div class="box product">
+      <h6><strong>Product Name</strong></h6>
+      <a class="btn btn-outline-success" href="#" role="button">View</a>
+      <button class="btn btn-outline-dark add-btn" type="button">
+        Add to cart
+      </button>
+      <h4 class="price">$100</h4>
+      <hr />
+    </div>
+  </div>
+</div>
+
 </div>
 {% endblock content %}

@@ -12,3 +12,18 @@ def cart(request):
 def checkout(request):
     context = {}
     return render(request, 'store/checkout.html')
+
+def mystery(request):
+    context = {}
+    # You can use the 'category' parameter to filter your products
+    # and render the appropriate template
+    # Example: products = Product.objects.filter(category=category)
+    return render(request, 'store/mystery.html')
+
+def otherstuff(request):
+    context = {}
+    return render(request, 'store/otherstuff.html')
+
+def nature(request):
+    context = {}
+    return render(request, 'store/nature.html')

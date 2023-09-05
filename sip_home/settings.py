@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "sip-home-a6dbdb394c52.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "sip-home-a6dbdb394c52.herokuapp.com", "127.0.0.1", "8000-simonpaske-siphome-36nwtdk9vcy.ws-eu104.gitpod.io"]
 
 
 # Application definition

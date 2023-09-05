@@ -1,3 +1,7 @@
 {
-    "recommendations": []
+    "recommendations": [
+        "anteprimorac.html-end-tag-labels",
+        "mohd-akram.vscode-html-format",
+        "lukasgeppert.html-fixer"
+    ]
 }
