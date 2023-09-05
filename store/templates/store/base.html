@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Store</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Store</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,7 +36,7 @@
             <li><a class="dropdown-item" href="{% url 'otherstuff' %}">Something else here</a></li>
           </ul>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
           </li>
         </li>
       </ul>
@@ -46,20 +46,27 @@
     <a href="{% url 'cart' %}"><button class="btn btn-outline-light" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a>
     
     <p id="cart-total">0</p>
-</div>
-   
+</div> 
     </div>
   </div>
 </nav>
+<br>
+<br>
+<br>
 
 <div class="container">
     {% block content %}
 
     {% endblock content %}
 </div>
-        
+<br>
+<br>
+<br>   
+<br>
+<br>
+<br>   
 <!-- Footer -->
-<footer class="bg-dark text-center text-white">
+<footer class="bg-dark text-center text-white fixed-bottom">
   <!-- Grid container -->
   <div class="container p-4">
     <!-- Section: Social media -->
@@ -93,17 +100,6 @@
 </footer>
 <!-- Footer -->
 <!-- JavaScript to update the Categories link -->
-<script>
-  $(document).ready(function () {
-    $('.dropdown-item').click(function (e) {
-      e.preventDefault();
-      var category = $(this).data('category');
-      var url = "{% url 'store' %}" + "?category=" + category;
-      $('a.dropdown-toggle').attr('href', url);
-      window.location.href = url;
-    });
-  });
-</script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
    
       </body>

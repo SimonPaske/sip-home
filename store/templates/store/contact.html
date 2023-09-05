@@ -1,0 +1,37 @@
+{% extends 'store/base.html' %} {% load static %} {% block content %}
+
+<div class="row mx-auto align-items-center">
+    <div class="col box text-center">
+        <br>
+        <div> <h3 class="display-5 text-center">
+            Thanks for contacting!<br>
+            I'll get back to you.
+          </h3> 
+        </div>
+        <br>
+        <br>
+        <div class="box" id="form-wrapper">
+            <form class="row g-3">
+                <div class="mb-3">
+                  <label for="validationDefault01" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="validationDefault01" placeholder="Full Name" required="">
+          </div>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend2">Email</span>
+            <input type="email" class="form-control" id="validationDefaultEmail" aria-describedby="inputGroupEmail" placeholder="namel@example.com" required="">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Write your mesage here:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Text Here"></textarea>
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-success" type="submit">Submit form</button>
+          </div>
+      </form>
+    </div>
+    <br>
+          <br>
+  </div>
+</div>
+  {% endblock content %} action="https://formspree.io/f/xnqydvyq" method="post"
+

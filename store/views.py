@@ -27,3 +27,7 @@ def otherstuff(request):
 def nature(request):
     context = {}
     return render(request, 'store/nature.html')
+
+def contact(request):
+    context = {}
+    return render(request, 'store/contact.html')
