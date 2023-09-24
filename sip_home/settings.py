@@ -15,7 +15,7 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
-
+DEVELOPMENT = os.environ.get('DEVELOPMENT', False)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -27,11 +27,14 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+DEBUG = DEVELOPMENT
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "sip-home-a6dbdb394c52.herokuapp.com", "127.0.0.1", "8000-simonpaske-siphome-36nwtdk9vcy.ws-eu104.gitpod.io"]
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+
+ALLOWED_HOSTS = ["localhost", "sip-home-a6dbdb394c52.herokuapp.com", "127.0.0.1:8000", '8000-simonpaske-siphome-w23j8y5mgia.ws-eu104.gitpod.io']
 
 
 # Application definition
@@ -44,13 +47,32 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
     'cloudinary_storage',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django.contrib.staticfiles',
     'cloudinary',
-    'django_summernote',
     'store',
+    'django_summernote',
+    'stripe',
+    'cart',
+    'accounts',
+    'payments',
 ]
 
 SITE_ID = 1
+LOGIN_URL = 'accounts/login'
+LOGIN_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'logout'
+
+# AUTH_USER_MODEL = 'store.AbstractUser'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+AUTHENTICATION_BACKENDS = [
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,9 +82,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'sip_home.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
