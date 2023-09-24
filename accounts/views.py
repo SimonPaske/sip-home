@@ -56,7 +56,6 @@ def loginPage(request):
         password = request.POST["password"]
 
         user = authenticate(request, username=username, password=password)
-        print("USER:", user)
         if user is not None:
             login(request, user)
             return redirect("store")

@@ -1,6 +1,3 @@
-console.log('CSRF LOADED');
-
-
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {

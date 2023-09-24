@@ -1,7 +1,4 @@
-console.log('remove_from_cart.js loaded');
-
 function updateOrder(productId, action) {
-    console.log('User is authenticated, sending data...');
     const url = '/update_cart/';
 
     fetch(url, {
@@ -14,28 +11,21 @@ function updateOrder(productId, action) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('data:', data);
         location.reload();
     })
     .catch(error => {
-        console.error('Error:', error);
     });
 }
 
 function handleButtonClick(button, actionMessage, successMessage) {
     button.addEventListener('click', function () {
-        console.log(`${actionMessage} clicked`);
+
         const productId = this.dataset.product;
         const action = this.dataset.action;
-        console.log('productId:', productId, 'action:', action);
-
-        console.log('USER NAME:', user);
 
         if (user === 'AnonymousUser') {
-            console.log('Not logged in');
         } else {
             updateOrder(productId, action);
-            console.log('User is logged in, sending data...');
             alert(successMessage);
         }
     });
@@ -64,7 +54,6 @@ function submitUserForm() {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        console.log('userForm:', userForm);
     });
 }
 
@@ -75,10 +64,8 @@ function handleFormSubmission() {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        console.log('Form submitted');
 
         submitButton.addEventListener('click', function () {
-            console.log('clicked');
         });
 
         submitButton.classList.add('hidden');
@@ -87,6 +74,6 @@ function handleFormSubmission() {
     });
 
     paymentButton.addEventListener('click', function () {
-        console.log('Make Payment button clicked');
+
     });
 }

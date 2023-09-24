@@ -5,9 +5,6 @@ const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
 const backButton = document.getElementById("back-button");
 const pageFooter = document.getElementById("page-footer"); // Add this line
 
-
-console.log('ENLARGE LOADED')
-
 // Function to open the modal
 function openModal(imageSrc) {
     modal.style.display = "block";
