@@ -1,8 +1,9 @@
 import json
 from django.http import JsonResponse
 from django.shortcuts import render
-
+from store.models import Order, OrderItem, Product
 from .models import *
+
 
 
 # Create your models here.
@@ -19,6 +20,7 @@ def cart(request):
 
     context = {"items": items, "order": order, "cartItems": cartItems}
     return render(request, "cart.html", context)
+
 
 def update_cart(request):
     data = json.loads(request.body)
@@ -51,3 +53,4 @@ def update_cart(request):
 def get_user(request):
     user = str(request.user)
     return JsonResponse({"user": user})
+

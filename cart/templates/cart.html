@@ -1,67 +1,88 @@
-   {% extends 'store/base.html' %} {% load static %} {% block content %}
+{% extends 'store/base.html' %} {% load static %} {% block content %}
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="box-element">
-          <br>
-          <a class="btn btn-outline-dark" href="{% url 'store' %}">Continue Shopping <span>➤</span></a>
-          <br>
-          <br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box-element">
+      <br>
+      <a class="btn btn-warning" href="{% url 'store' %}">Continue Shopping <span>➤</span></a>
+      <br>
+      <br>
+      <table class="table shadow-lg">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="row"><h5>Items</h5></th>
+            <th scope="row">
+            </th>
+            <th scope="row">
+              <h5>Total:</h5>
+            </th>
+          </tr>
+        </thead>
 
-          <table class="table shadow-lg">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="row"><h5>Items</h5></th>
-                <th scope="row">
-                  <h5>Product Name:</h5>
-                </th>
-                <th scope="row">
-                  <h5>Total:</h5>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row"><strong>3</strong></th>
-                <td>Product Name</td>
-                <td><strong>45$</strong></td>
-                <td>
-                  <a href="{% url 'checkout' %}"><button class="price btn btn-success">Checkout</button></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <tbody>
+          <tr>
+            <th scope="row"><strong>{{ order.get_cart_items }}</strong></th>
+            <td></td>
+            <td><strong>{{ order.get_cart_total|floatformat:2 }} DKK</strong></td>
+            <td>
+              <a href="{% url 'checkout' %}"><button class="price btn btn-success" id="checkout-button">Checkout</button></a>
+            </td>
+          </tr>
+        </tbody>
 
-        <br>
-        <br>
 
-        <table class="table shadow-lg">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Item</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <img class="mx-auto" src="{% static 'images/louisiana.webp' %}" width="100" height="100">
-              </td>
-              <td>Product Name</td>
-              <td>
-                <input type="number" value="1" min="0">
-                <button class="btn btn-danger" type="button">REMOVE</button>
-              </td>
-              <td>$45</td>
-            </tr>
-            <!-- Add more rows as needed -->
-          </tbody>
-        </table>
-      </div>
+
+      </table>
     </div>
+<div class="box">
+<table class="table col-md-auto shadow-lg">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">Item</th>
+    <th scope="col">Price</th>
+    <th scope="col">Quantity</th>
+    <th></th>
+    <th scope="col">Total</th>
+  </tr>
+</thead>
+<tbody>
+  {% for item in items %}
+  <tr>
+    <td>
+        <img class="cart-img lightbox-trigger" src="{{ item.product.image.url }}">
+      </a>
+    </td>
+    <td>
+      <a href="{% url 'detail' item.product.id %}" class="text-gray link-secondary fw-bold">
+        {{ item.product.name }}
+      </a>
+    </td>
+    <td>
+      <div class="quantity-container">
+        <p>{{ item.quantity }}</p>
+      </div>
+    </td>
+    <td class="quantity-btn">
+      <div class="cart-item">
+        <button data-product="{{ item.product.id }}" class="btn btn-danger remove-btn remove_from_cart" type="button" name="remove-from-cart" data-action="remove"> &#x290B; </button>
+        <button data-product="{{ item.product.id }}" class="btn btn-success add-btn add_to_cart" type="button" name="add-to-cart" data-action="add"> &#x290A; </button>
+        <button data-product="{{ item.product.id }}" class="btn btn-danger remove-btn remove_from_cart" type="button" name="remove-from-cart" data-action="delete">Remove</button>
+      </div>
+    </td>
+    <td><strong>{{ item.get_total|floatformat:2 }} DKK</strong></td>
+  </tr>
+  {% endfor %}
+  <!-- Add more rows as needed -->
+</tbody>
 
-    {% endblock content %} {% comment %} <i class="fa-solid fa-arrow-down"></i>
-    <i class="fa-solid fa-arrow-up"></i> {% endcomment %}
+</table>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock content %} 

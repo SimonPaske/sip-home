@@ -1,8 +1,4 @@
-import { getCookie } from './cookieUtils'; // Import the getCookie function from the other file
-
 console.log('remove_from_cart.js loaded');
-
-const csrftoken = getCookie('csrftoken');
 
 function updateOrder(productId, action) {
     console.log('User is authenticated, sending data...');
@@ -16,14 +12,14 @@ function updateOrder(productId, action) {
         },
         body: JSON.stringify({ 'productId': productId, 'action': action })
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log('data:', data);
-            location.reload();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    .then(response => response.json())
+    .then(data => {
+        console.log('data:', data);
+        location.reload();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 function handleButtonClick(button, actionMessage, successMessage) {
@@ -54,3 +50,43 @@ const addBtn = document.querySelectorAll('.add_to_cart');
 addBtn.forEach(button => {
     handleButtonClick(button, 'add to cart', 'Product added to the cart.');
 });
+
+function submitUserForm() {
+    const form = document.getElementById('shipping-info');
+    const userForm = {
+        'first_name': document.getElementById('first_name').value,
+        'last_name': document.getElementById('last_name').value,
+        'email': document.getElementById('email').value,
+        'address': document.getElementById('address').value,
+        'city': document.getElementById('country').value,
+        'zip': document.getElementById('zip').value,
+    };
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        console.log('userForm:', userForm);
+    });
+}
+
+function handleFormSubmission() {
+    const form = document.getElementById('shipping-info');
+    const submitButton = document.getElementById('submit-button');
+    const paymentButton = document.getElementById('make-payment-button');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        console.log('Form submitted');
+
+        submitButton.addEventListener('click', function () {
+            console.log('clicked');
+        });
+
+        submitButton.classList.add('hidden');
+        form.classList.add('hidden');
+        paymentButton.classList.remove('hidden');
+    });
+
+    paymentButton.addEventListener('click', function () {
+        console.log('Make Payment button clicked');
+    });
+}

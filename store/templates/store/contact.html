@@ -11,18 +11,19 @@
         <br>
         <br>
         <div class="box" id="form-wrapper">
-            <form class="row g-3">
+            <form class="row g-3"  action="https://formspree.io/f/moqolnpv"
+            method="POST">
                 <div class="mb-3">
-                  <label for="validationDefault01" class="form-label">Full Name</label>
-                  <input type="text" class="form-control" id="validationDefault01" placeholder="Full Name" required="">
+                  <label for="name" class="form-label">{{full_name}}</label>
+                  <input type="text" name="name" id="full-name" class="form-control" id="name" placeholder="Full Name" required="">
           </div>
           <div class="input-group">
-            <span class="input-group-text" id="inputGroupPrepend2">Email</span>
-            <input type="email" class="form-control" id="validationDefaultEmail" aria-describedby="inputGroupEmail" placeholder="namel@example.com" required="">
+            <span class="input-group-text" for="email-address" id="email">{{email}}</span>
+            <input type="email" name="_replyto" class="form-control" id="email-address" aria-describedby="inputGroupEmail" placeholder="namel@example.com" required="">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Write your mesage here:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Text Here"></textarea>
+            <label for="message">Write your mesage here:</label>
+            <textarea name="message" id="message" class="form-control" rows="3" placeholder="Your Text Here"></textarea>
           </div>
           <div class="d-grid gap-2 col-6 mx-auto">
             <button class="btn btn-success" type="submit">Submit form</button>
@@ -33,5 +34,7 @@
           <br>
   </div>
 </div>
-  {% endblock content %} action="https://formspree.io/f/xnqydvyq" method="post"
+
+
+{% endblock content %}
 

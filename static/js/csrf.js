@@ -1,4 +1,5 @@
-console.log('csrf file loaded')
+console.log('CSRF LOADED');
+
 
 function getCookie(name) {
     let cookieValue = null;
@@ -15,6 +16,4 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-
-window.csrftoken = getCookie('csrftoken');
-
+const csrftoken = getCookie('csrftoken');
