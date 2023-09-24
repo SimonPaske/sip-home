@@ -2,6 +2,7 @@ from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from .models import *
 
+
 # Register your models here.
 @admin.register(Product)
 class ProductAdmin(SummernoteModelAdmin):
@@ -15,7 +16,15 @@ class OrderAdmin(SummernoteModelAdmin):
                     "order_date")
     list_filter = ("id", "customer", "complete", "order_date", "customer")
 
+
 @admin.register(OrderItem)
 class OrderItemAdmin(SummernoteModelAdmin):
     list_display = ("id", "product", "customer", "quantity", "date_added")
     list_filter = ("id", "product", "quantity", "date_added")
+
+
+@admin.register(ProductReview)
+class ProductReviewAdmin(SummernoteModelAdmin):
+    list_display = ("product", "customer", "rating", "feedback", "date_added")
+    list_filter = ("product", "customer", "rating", "date_added")
+    search_fields = ("product__name", "customer__user__username", "feedback")

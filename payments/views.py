@@ -56,7 +56,6 @@ def create_checkout_session(request):
 
     return JsonResponse({"sessionId": checkout_session.id})
 
-
 def PaymentSuccessView(request):
     customer = request.user.customer
     order = Order.objects.get(customer=customer, complete=False)
