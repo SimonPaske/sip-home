@@ -1,9 +1,9 @@
 import json
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
 from store.models import Order, OrderItem, Product
 from .models import *
-
 
 
 # Create your models here.
@@ -11,7 +11,8 @@ from .models import *
 def cart(request):
     if request.user.is_authenticated:
         customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
         items = order.orderitem_set.all().order_by("product__name")
         cartItems = order.get_cart_items
     else:
@@ -22,6 +23,7 @@ def cart(request):
     context = {"items": items, "order": order, "cartItems": cartItems}
     return render(request, "cart.html", context)
 
+
 @login_required(login_url="login")
 def update_cart(request):
     data = json.loads(request.body)
@@ -31,8 +33,10 @@ def update_cart(request):
     customer = request.user.customer
     product = Product.objects.get(id=product_id)
 
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    orderitem, created = OrderItem.objects.get_or_create(order=order, product=product)
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    orderitem, created = OrderItem.objects.get_or_create(
+        order=order, product=product)
 
     if action == "add":
         orderitem.quantity += 1
@@ -54,4 +58,3 @@ def update_cart(request):
 def get_user(request):
     user = str(request.user)
     return JsonResponse({"user": user})
-

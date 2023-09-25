@@ -25,7 +25,8 @@ def store(request):
         except ObjectDoesNotExist:
             customer = Customer.objects.create(user=request.user)
 
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
@@ -38,9 +39,6 @@ def store(request):
     return render(request, "store/store.html", context)
 
 
-
-
-
 def contact(request):
     context = {
         "page": "contact",
@@ -49,7 +47,6 @@ def contact(request):
         "message": "Message",
     }
     return render(request, "store/contact.html")
-
 
 
 class ProductDetailView(DetailView):
@@ -115,5 +112,6 @@ def add_product_review(request, product_id):
             form = ProductReviewForm()
 
     return render(
-        request, "store/product_review.html", {"form": form, "product": product}
+        request, "store/product_review.html", {
+            "form": form, "product": product}
     )
