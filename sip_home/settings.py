@@ -35,7 +35,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
-ALLOWED_HOSTS = ["localhost", "sip-home-a6dbdb394c52.herokuapp.com", "127.0.0.1:8000", '8000-simonpaske-siphome-w23j8y5mgia.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ["localhost", "sip-home-a6dbdb394c52.herokuapp.com", "127.0.0.1:8000", '8000-simonpaske-siphome-w23j8y5mgia.ws-eu104.gitpod.io', '127.0.0.1:8000']
 
 
 # Application definition

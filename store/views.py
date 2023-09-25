@@ -14,7 +14,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import CreateView, DetailView, ListView, TemplateView
-from .models import *
+from store.models import Customer, Order, OrderItem, Product, ProductReview
 
 
 @login_required(login_url="login")
@@ -25,8 +25,7 @@ def store(request):
         except ObjectDoesNotExist:
             customer = Customer.objects.create(user=request.user)
 
-        order, created = Order.objects.get_or_create(
-            customer=customer, complete=False)
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
@@ -47,6 +46,7 @@ def contact(request):
         "message": "Message",
     }
     return render(request, "store/contact.html")
+
 
 
 class ProductDetailView(DetailView):
@@ -86,7 +86,7 @@ class ProductDetailView(DetailView):
 
 class ProductListView(ListView):
     model = Product
-    template_name = "store/product_list.html"
+    template_name = "product_list.html"
     context_object_name = "product_list"
 
 
@@ -105,13 +105,12 @@ def add_product_review(request, product_id):
                 messages.success(
                     request, "Your review has been submitted successfully."
                 )
-                return redirect("product_detail", id=product_id)
+                return redirect("detail", id=product_id)
             else:
                 print("Form Errors:", form.errors)
         else:
             form = ProductReviewForm()
 
     return render(
-        request, "store/product_review.html", {
-            "form": form, "product": product}
+        request, "product_review.html", {"form": form, "product": product}
     )
