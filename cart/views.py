@@ -7,6 +7,7 @@ from .models import *
 
 
 # Create your models here.
+@login_required(login_url="login")
 def cart(request):
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -21,7 +22,7 @@ def cart(request):
     context = {"items": items, "order": order, "cartItems": cartItems}
     return render(request, "cart.html", context)
 
-
+@login_required(login_url="login")
 def update_cart(request):
     data = json.loads(request.body)
     product_id = data["productId"]
