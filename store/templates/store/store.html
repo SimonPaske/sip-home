@@ -1,37 +1,56 @@
-{% extends 'store/base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'store/base.html' %} {% load static %} {% block content %}
 
-
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+<div
+  id="carouselExampleInterval"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
   <div class="carousel-inner">
     {% for product in products %}
-    <div class="carousel-item {% if forloop.first %} active {% endif %}" data-bs-interval="2000">
-      <img src="{{ product.image.url }}" class="img-fluid mx-auto d-block">
+    <div
+      class="carousel-item {% if forloop.first %} active {% endif %}"
+      data-bs-interval="2000"
+    >
+      <img src="{{ product.image.url }}" class="img-fluid mx-auto d-block" />
     </div>
     {% endfor %}
   </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
+<br />
 <div class="container">
   <div class="row">
     {% for product in products %}
     <div class="col-sm col-md lg-8 text-center gallery">
-        <img src="{{ product.image.url }}" class="thumbnails lightbox-trigger" alt="{{ product.name }}">
+      <img
+        src="{{ product.image.url }}"
+        class="thumbnails lightbox-trigger"
+        alt="{{ product.name }}"
+      />
       <div class="box product">
         <h6><strong>{{ product.name }}</strong></h6>
-        <a class="btn btn-outline-success" href="{% url 'detail' product.id %}" role="button">View Details</a>
-        <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-dark add-btn add_to_cart" type="button" name="add-to-cart">
+        <a
+          class="btn btn-outline-success"
+          href="{% url 'detail' product.id %}"
+          role="button"
+          >View Details</a
+        >
+        <button
+          data-product="{{ product.id }}"
+          data-action="add"
+          class="btn btn-outline-dark add-btn add_to_cart"
+          type="button"
+          name="add-to-cart"
+        >
           Add to cart
         </button>
-        <br>
-        <br>
+        <br />
+        <br />
         <div class="row">
-        <h4 class="price">{{ product.price|floatformat:2 }}DKK</h4>
+          <h4 class="price">{{ product.price|floatformat:2 }}DKK</h4>
         </div>
       </div>
     </div>

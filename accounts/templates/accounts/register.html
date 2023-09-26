@@ -1,60 +1,87 @@
-{% extends 'store/base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'store/base.html' %} {% load static %} {% block content %}
 
-<section class="rem-100 bg-image"
-  style="background-image: url('{% static 'images/register.webp' %}');">
+<section
+  class="rem-100 bg-image"
+  style="background-image: url('{% static 'images/register.webp' %}')"
+>
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div class="card" style="border-radius: 15px;">
+          <div class="card" style="border-radius: 15px">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
               <form method="post" action="{% url 'register' %}">
-                {% csrf_token %}        
-                {{ register_form.as_p }}
+                {% csrf_token %} {{ register_form.as_p }}
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="id_your-name" name="username" class="form-control form-control-lg" />
+                  <input
+                    type="text"
+                    id="id_your-name"
+                    name="username"
+                    class="form-control form-control-lg"
+                  />
                   <label class="form-label" for="id_your-name">Username</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="id_your-email" name="email" class="form-control form-control-lg" />
-                  <label class="form-label" for="id_your-email">Your Email</label>
+                  <input
+                    type="email"
+                    id="id_your-email"
+                    name="email"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="id_your-email"
+                    >Your Email</label
+                  >
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="id_password" name="password1" class="form-control form-control-lg" />
+                  <input
+                    type="password"
+                    id="id_password"
+                    name="password1"
+                    class="form-control form-control-lg"
+                  />
                   <label class="form-label" for="id_password">Password</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="id_password1" name="password2" class="form-control form-control-lg" />
-                  <label class="form-label" for="id_password1">Repeat your password</label>
+                  <input
+                    type="password"
+                    id="id_password1"
+                    name="password2"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="id_password1"
+                    >Repeat your password</label
+                  >
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="submit"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  <button
+                    type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                  >
+                    Register
+                  </button>
                 </div>
-                <br>
-                
+                <br />
+
                 {% for message in messages %}
 
-                <div class="alert alert-danger" role="alert">
-                  {{ message }}
-                </div>
+                <div class="alert alert-danger" role="alert">{{ message }}</div>
 
                 {% endfor %}
 
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'login' %}"
-                    class="fw-bold text-body"><u>Login here</u></a></p>
-
+                <p class="text-center text-muted mt-5 mb-0">
+                  Have already an account?
+                  <a href="{% url 'login' %}" class="fw-bold text-body"
+                    ><u>Login here</u></a
+                  >
+                </p>
               </form>
-
             </div>
           </div>
         </div>

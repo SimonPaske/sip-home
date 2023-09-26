@@ -1,40 +1,66 @@
 {% extends 'store/base.html' %} {% load static %} {% block content %}
 
 <div class="row mx-auto align-items-center">
-    <div class="col box text-center">
-        <br>
-        <div> <h3 class="display-5 text-center">
-            Thanks for contacting!<br>
-            I'll get back to you.
-          </h3> 
+  <div class="col box text-center">
+    <br />
+    <div>
+      <h3 class="display-5 text-center">
+        Thanks for contacting!<br />
+        I'll get back to you.
+      </h3>
+    </div>
+    <br />
+    <br />
+    <div class="box" id="form-wrapper">
+      <form
+        class="row g-3"
+        action="https://formspree.io/f/moqolnpv"
+        method="POST"
+      >
+        <div class="mb-3">
+          <label for="name" class="form-label">{{full_name}}</label>
+          <input
+            type="text"
+            name="name"
+            id="full-name"
+            class="form-control"
+            id="name"
+            placeholder="Full Name"
+            required=""
+          />
         </div>
-        <br>
-        <br>
-        <div class="box" id="form-wrapper">
-            <form class="row g-3"  action="https://formspree.io/f/moqolnpv"
-            method="POST">
-                <div class="mb-3">
-                  <label for="name" class="form-label">{{full_name}}</label>
-                  <input type="text" name="name" id="full-name" class="form-control" id="name" placeholder="Full Name" required="">
-          </div>
-          <div class="input-group">
-            <span class="input-group-text" for="email-address" id="email">{{email}}</span>
-            <input type="email" name="_replyto" class="form-control" id="email-address" aria-describedby="inputGroupEmail" placeholder="namel@example.com" required="">
-          </div>
-          <div class="form-group">
-            <label for="message">Write your mesage here:</label>
-            <textarea name="message" id="message" class="form-control" rows="3" placeholder="Your Text Here"></textarea>
-          </div>
-          <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-success" type="submit">Submit form</button>
-          </div>
+        <div class="input-group">
+          <span class="input-group-text" for="email-address" id="email"
+            >{{email}}</span
+          >
+          <input
+            type="email"
+            name="_replyto"
+            class="form-control"
+            id="email-address"
+            aria-describedby="inputGroupEmail"
+            placeholder="namel@example.com"
+            required=""
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Write your mesage here:</label>
+          <textarea
+            name="message"
+            id="message"
+            class="form-control"
+            rows="3"
+            placeholder="Your Text Here"
+          ></textarea>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button class="btn btn-success" type="submit">Submit form</button>
+        </div>
       </form>
     </div>
-    <br>
-          <br>
+    <br />
+    <br />
   </div>
 </div>
 
-
 {% endblock content %}
-

@@ -519,14 +519,9 @@ The website provides a seamless and enjoyable user experience, from browsing pro
 
 <br>
 
-**Product details**
+**Product details** / **Cart**
 
 <img src='docs/wireframe/mobile/product_details_mob.png' width='300px'>
-
-<br>
-
-**Cart**
-
 <img src='docs/wireframe/mobile/cart_mob.png' width='300px'>
 
 <br>
@@ -770,68 +765,75 @@ By implementing these security measures, the current database design aims to pro
 
 ## Home Page
 
-- [ ] Verify that the home page loads correctly without errors.
-- [ ] Check that the navigation menu is visible and functional.
-- [ ] Ensure that the product listings are displayed correctly with images, names, and prices.
-- [ ] Test the responsiveness of the home page by resizing the browser window.
-- [ ] Verify that the cart indicator (if logged in) shows the correct number of items.
+- [x] Verify that the home page loads correctly without errors.
+- [x] Check that the navigation menu is visible and functional.
+- [x] Ensure that the product listings are displayed correctly with images, names, and prices.
+- [x] Test the responsiveness of the home page by resizing the browser window.
+- [x] Verify that the cart indicator (if logged in) shows the correct number of items.
 
 ## Store Page
 
-- [ ] Click on a product to view its details, and verify that the product page loads correctly.
-- [ ] Check that the product images, descriptions, and prices are displayed accurately.
-- [ ] Attempt to add a product to the cart and confirm that the cart updates accordingly.
-- [ ] Test the "Add to Cart" button to ensure it functions as expected.
+- [x] Click on a product to view its details, and verify that the product page loads correctly.
+- [x] Check that the product images, descriptions, and prices are displayed accurately.
+- [x] Attempt to add a product to the cart and confirm that the cart updates accordingly.
+- [x] Test the "Add to Cart" button to ensure it functions as expected.
 
 ## User Profile and Edit Profile
 
-- [ ] Access the user profile page and verify that it displays the user's information.
-- [ ] Edit the user's profile by modifying the name and email address and confirm that changes are saved successfully.
-- [ ] Ensure that appropriate success messages are displayed after profile edits.
+- [x] Access the user profile page and verify that it displays the user's information.
+- [x] Edit the user's profile by modifying the name and email address and confirm that changes are saved successfully.
+- [x] Ensure that appropriate success messages are displayed after profile edits.
+
+**Found a bug. When you edit the profile and click save, the page saves changes and redirects to home page. However, the success message is not displayed when you edit the profile and click save. The success message is displayed when user clicks again on Edit Profile.**
 
 ## Cart Page
 
-- [ ] Click on the cart icon or select "Cart" from the menu to access the cart page.
-- [ ] Verify that the cart displays a list of items with their names, quantities, and total prices.
-- [ ] Test the functionality to update item quantities and remove items from the cart.
-- [ ] Confirm that the "Proceed to Checkout" button takes users to the checkout page.
+- [x] Click on the cart icon or select "Cart" from the menu to access the cart page.
+- [x] Verify that the cart displays a list of items with their names, quantities, and total prices.
+- [x] Test the functionality to update item quantities and remove items from the cart.
+- [x] Confirm that the "Proceed to Checkout" button takes users to the checkout page.
 
 ## Checkout Page
 
-- [ ] Access the checkout page and check for the presence of a secure payment form.
-- [ ] Enter valid shipping information (if applicable) and verify that it is processed correctly.
-- [ ] Test the payment process by entering valid payment information.
-- [ ] Confirm that a successful payment results in an order confirmation or success page.
-- [ ] Test the behavior when entering invalid payment information.
+- [x] Access the checkout page and check for the presence of a secure payment form.
+- [x] Enter valid shipping information (if applicable) and verify that it is processed correctly.
+- [x] Test the payment process by entering valid payment information.
+- [x] Confirm that a successful payment results in an order confirmation or success page.
+- [x] Test the behavior when entering invalid payment information.
 
 ## Product Reviews
 
-- [ ] Navigate to a product page and check if users can leave product reviews.
-- [ ] Leave a review and rating for a product to ensure the process is straightforward.
-- [ ] Confirm that submitted reviews and ratings are displayed correctly on the product page.
+- [x] Navigate to a product page and check if users can leave product reviews.
+- [x] Leave a review and rating for a product to ensure the process is straightforward.
+- [x] Confirm that submitted reviews and ratings are displayed correctly on the product page.
 
 ## Registration and Login
 
-- [ ] Register a new user account and verify that the registration process is successful.
-- [ ] Log in using the newly created account and ensure that the login process works as expected.
-- [ ] Test the "Forgot Password" functionality if available.
+- [x] Register a new user account and verify that the registration process is successful.
+- [x] Log in using the newly created account and ensure that the login process works as expected.
 
 ## Contact Page
 
-- [ ] Access the contact page and verify that it displays the required fields for name, email, and message.
-- [ ] Submit a message through the contact form and confirm that it is sent successfully.
-- [ ] Test the contact form with incomplete or incorrect information to check for validation.
+- [x] Access the contact page and verify that it displays the required fields for name, email, and message.
+- [x] Submit a message through the contact form and confirm that it is sent successfully.
+- [x] Test the contact form with incomplete or incorrect information to check for validation.
 
 ## Overall Experience
 
-- [ ] Perform cross-browser testing (e.g., Chrome, Firefox, Safari) to ensure compatibility.
-- [ ] Test the website's responsiveness on various devices (e.g., desktop, tablet, mobile).
-- [ ] Verify that error messages are displayed when necessary (e.g., login failures, invalid form submissions).
-- [ ] Check for broken links or images throughout the website.
-- [ ] Test the website's performance by loading pages with a reasonable amount of data.
-- [ ] Confirm that the website's design is consistent and visually appealing.
+- [x] Perform cross-browser testing (e.g., Chrome, Firefox, Safari) to ensure compatibility.
+- [x] Test the website's responsiveness on various devices (e.g., desktop, tablet, mobile).
+- [x] Verify that error messages are displayed when necessary (e.g., login failures, invalid form submissions).
+- [x] Check for broken links or images throughout the website.
+- [x] Test the website's performance by loading pages with a reasonable amount of data.
+- [x] Confirm that the website's design is consistent and visually appealing.
 
-This manual testing checklist can serve as a starting point for ensuring the functionality, usability, and reliability of your e-commerce website. You may customize it further to match the specific features and requirements of your website.
+This manual testing checklist was completed. The website was tested on various devices and browsers to ensure compatibility and responsiveness. The website was also tested for performance and design consistency with Google Lighthouse and [GTmetrix](https://gtmetrix.com/). [Link for performance results](https://gtmetrix.com/reports/sip-home-a6dbdb394c52.herokuapp.com/RPc24nuw/).
+
+![desktop performance](docs/images/screenshots/desktop/performance.png)
+
+![mobile performance](docs/images/screenshots/mobile/performcance_mob.png)
+
+---
 
 ## Technologies
 

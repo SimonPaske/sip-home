@@ -5,16 +5,14 @@ function updateOrder(productId, action) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-CSRFToken': csrftoken,
+            'X-CSRFToken': csrftoken
         },
-        body: JSON.stringify({ 'productId': productId, 'action': action })
-    })
-    .then(response => response.json())
-    .then(data => {
+        body: JSON.stringify(
+            {'productId': productId, 'action': action}
+        )
+    }).then(response => response.json()).then(data => {
         location.reload();
-    })
-    .catch(error => {
-        // Display an error message
+    }).catch(error => { // Display an error message
         const errorMessage = document.createElement('div');
         errorMessage.classList.add('message', 'error-message');
         errorMessage.textContent = 'An error occurred. Please try again later.';
@@ -28,8 +26,7 @@ function handleButtonClick(button, actionMessage, successMessage) {
         const productId = this.dataset.product;
         const action = this.dataset.action;
 
-        if (user === 'AnonymousUser') {
-        } else {
+        if (user === 'AnonymousUser') {} else {
             updateOrder(productId, action);
             // Display a success message
             const successMessageElement = document.createElement('div');
@@ -44,7 +41,6 @@ function handleButtonClick(button, actionMessage, successMessage) {
         }
     });
 }
-
 
 
 const removeBtn = document.querySelectorAll('.remove_from_cart');
@@ -65,7 +61,7 @@ function submitUserForm() {
         'email': document.getElementById('email').value,
         'address': document.getElementById('address').value,
         'city': document.getElementById('country').value,
-        'zip': document.getElementById('zip').value,
+        'zip': document.getElementById('zip').value
     };
 
     form.addEventListener('submit', function (e) {
@@ -81,15 +77,12 @@ function handleFormSubmission() {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        submitButton.addEventListener('click', function () {
-        });
+        submitButton.addEventListener('click', function () {});
 
         submitButton.classList.add('hidden');
         form.classList.add('hidden');
         paymentButton.classList.remove('hidden');
     });
 
-    paymentButton.addEventListener('click', function () {
-
-    });
+    paymentButton.addEventListener('click', function () {});
 }

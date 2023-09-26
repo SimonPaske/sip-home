@@ -66,7 +66,7 @@ def checkout(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(
             customer=customer, complete=False)
-        items = order.orderitem_set.all()
+        items = order.orderitem_set.all().order_by("product__name")
         cartItems = order.get_cart_items
     else:
         items = []

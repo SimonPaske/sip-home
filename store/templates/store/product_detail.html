@@ -1,94 +1,117 @@
-{% extends 'store/base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'store/base.html' %} {% load static %} {% block content %}
 
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h2>Product Detail</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <img class="img-thumbnail lightbox-trigger" src="{{ product.image.url }}" alt="{{ product.name }}">
-            </div>
-            <div class="col-md-6">
-                <h1>Name: {{ product.name }}</h1>
-                <p>Description: {{ product.description }}</p>
-                <p>Price: {{ product.price|floatformat:2 }} DKK</p>
-                <div class="d-grid gap-2 d-md-block">
-                    <a class="btn btn-outline-dark" href="{% url 'cart' %}">Back to Cart</a>
-                    <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-success add-btn add_to_cart" type="button" name="add-to-cart">
-                        Add to cart
-                      </button>
-                    <a class="btn btn-warning" href="{% url 'store' %}">Continue Shopping <span>➤</span></a>
-                    </div>
-            </div>
-        </div>
+  <div class="card">
+    <div class="card-header">
+      <h2>Product Detail</h2>
     </div>
-
-    <div class="card mt-4">
-        <div class="card-header">
-            <h2>Reviews</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <img
+          class="img-thumbnail lightbox-trigger"
+          src="{{ product.image.url }}"
+          alt="{{ product.name }}"
+        />
+      </div>
+      <div class="col-md-6">
+        <h1>Name: {{ product.name }}</h1>
+        <p>Description: {{ product.description }}</p>
+        <p>Price: {{ product.price|floatformat:2 }} DKK</p>
+        <div class="d-grid gap-2 d-md-block">
+          <a class="btn btn-outline-dark" href="{% url 'cart' %}"
+            >Back to Cart</a
+          >
+          <button
+            data-product="{{ product.id }}"
+            data-action="add"
+            class="btn btn-outline-success add-btn add_to_cart"
+            type="button"
+            name="add-to-cart"
+          >
+            Add to cart
+          </button>
+          <a class="btn btn-warning" href="{% url 'store' %}"
+            >Continue Shopping <span>➤</span></a
+          >
         </div>
-        <div class="card-body">
-            <table class="table">
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <div class="card-header">
+      <h2>Latest Reviews</h2>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Feedback</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for review in latest_reviews %}
+          <tr>
+            <td><strong>{{ review.customer }}</strong></td>
+            <td>{{ review.feedback }}</td>
+            <td>{{ review.rating }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <button
+      class="btn btn--outline-primary"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target=".multi-collapse"
+      aria-expanded="false"
+      aria-controls="multiCollapseReviews "
+    >
+      Show all
+    </button>
+    <div class="row">
+      <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="card-body">
+            <div class="table-container">
+              <table class="table">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Feedback</th>
-                        <th>Rating</th>
-                    </tr>
+                  <tr>
+                    <th>Name</th>
+                    <th>Feedback</th>
+                    <th>Rating</th>
+                  </tr>
                 </thead>
                 <tbody>
-                  {% for review in latest_reviews %}
-                    <tr>
-                        <td><strong>{{ review.customer }}</strong></td>
-                        <td>{{ review.feedback }}</td>
-                        <td>{{ review.rating }}</td>
-                    </tr>
-                    {% endfor %}
+                  {% for review in all_reviews %}
+                  <tr>
+                    <td><strong>{{ review.customer }}</strong></td>
+                    <td>{{ review.feedback }}</td>
+                    <td>{{ review.rating }}</td>
+                  </tr>
+                  {% endfor %}
                 </tbody>
-            </table>
+              </table>
+            </div>
+          </div>
         </div>
-        <button class="btn btn--outline-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseReviews ">Show all</button>
-        <div class="row">
-            <div class="col">
-              <div class="collapse multi-collapse" id="multiCollapseExample1">
-                    <div class="card-body">
-                    <div class="table-container">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Feedback</th>
-                                    <th>Rating</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {% for review in all_reviews %}
-                                <tr>
-                                    <td><strong>{{ review.customer }}</strong></td>
-                                    <td>{{ review.feedback }}</td>
-                                    <td>{{ review.rating }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-        </div>
-        </div>
-        </div>
-
-
+      </div>
     </div>
-    <div>
-    <a href="{% url 'add_product_review' product.id %}" class="btn btn-outline-primary">Leave Review</a>
-    </div>
+  </div>
+  <div>
+    <a
+      href="{% url 'add_product_review' product.id %}"
+      class="btn btn-outline-primary"
+      >Leave Review</a
+    >
+  </div>
 </div>
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
 
 <!-- Add JavaScript Here -->
 {% endblock content %}
