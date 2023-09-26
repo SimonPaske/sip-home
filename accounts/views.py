@@ -1,20 +1,7 @@
-import json
-from typing import Any
-
-import stripe
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse, reverse_lazy
-from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import CreateView, DetailView, ListView, TemplateView
-
+from django.shortcuts import redirect, render
 from .forms import *
 from .models import *
 
@@ -28,11 +15,11 @@ def registerPage(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.email = form.cleaned_data["email"]
-            user.save()  # Save the user object with email
+            user.save()
             customer, created = Customer.objects.get_or_create(user=user)
-            customer.name = user.username  # Set name to username by default
-            customer.email = user.email  # Set email to user's email
-            customer.save()  # Save the customer object with name and email
+            customer.name = user.username
+            customer.email = user.email
+            customer.save()
 
             login(request, user)
             messages.success(request, "Account created successfully")
@@ -45,7 +32,7 @@ def registerPage(request):
     else:
         form = NewUserForm()
 
-    return render(request, "register.html", {"form": form})
+    return render(request, "accounts/register.html", {"form": form})
 
 
 def loginPage(request):
@@ -62,7 +49,7 @@ def loginPage(request):
         else:
             messages.info(request, "Username or password is incorrect")
 
-    return render(request, "login.html", {"page": "login"})
+    return render(request, "accounts/login.html", {"page": "login"})
 
 
 def user_logout(request):
@@ -82,7 +69,8 @@ def edit_customer(request):
             form.save()
             messages.success(request, "Your profile has been updated.")
             return redirect("store")
+
     else:
         form = EditCustomerForm(instance=customer)
 
-    return render(request, "edit_profile.html", {"form": form})
+    return render(request, "accounts/edit_profile.html", {"form": form})

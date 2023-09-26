@@ -14,6 +14,11 @@ function updateOrder(productId, action) {
         location.reload();
     })
     .catch(error => {
+        // Display an error message
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('message', 'error-message');
+        errorMessage.textContent = 'An error occurred. Please try again later.';
+        document.body.appendChild(errorMessage);
     });
 }
 
@@ -26,10 +31,21 @@ function handleButtonClick(button, actionMessage, successMessage) {
         if (user === 'AnonymousUser') {
         } else {
             updateOrder(productId, action);
-            alert(successMessage);
+            // Display a success message
+            const successMessageElement = document.createElement('div');
+            successMessageElement.classList.add('message', 'success-message');
+            successMessageElement.textContent = successMessage;
+            document.body.appendChild(successMessageElement);
+
+            // Set a timeout to remove the success message after 5 seconds
+            setTimeout(() => {
+                successMessageElement.remove();
+            }, 10000);
         }
     });
 }
+
+
 
 const removeBtn = document.querySelectorAll('.remove_from_cart');
 removeBtn.forEach(button => {

@@ -1,20 +1,11 @@
 import json
-from typing import Any
-
 import stripe
 from django.conf import settings
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse, reverse_lazy
+from django.shortcuts import render
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import CreateView, DetailView, ListView, TemplateView
-
+from django.views.generic import TemplateView
 from .models import *
 
 
@@ -22,7 +13,8 @@ from .models import *
 def create_checkout_session(request):
     request_data = json.loads(request.body)
     customer = request.user.customer
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
     line_items = []
@@ -56,12 +48,13 @@ def create_checkout_session(request):
 
     return JsonResponse({"sessionId": checkout_session.id})
 
+
 def PaymentSuccessView(request):
     customer = request.user.customer
     order = Order.objects.get(customer=customer, complete=False)
     order.orderitem_set.all().delete()
 
-    return render(request, "success.html")
+    return render(request, "payments/success.html")
 
 
 class PaymentFailedView(TemplateView):
@@ -71,7 +64,8 @@ class PaymentFailedView(TemplateView):
 def checkout(request):
     if request.user.is_authenticated:
         customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
@@ -80,4 +74,4 @@ def checkout(request):
         cartItems = order["get_cart_items"]
 
     context = {"items": items, "order": order, "cartItems": cartItems}
-    return render(request, "checkout.html", context)
+    return render(request, "payments/checkout.html", context)

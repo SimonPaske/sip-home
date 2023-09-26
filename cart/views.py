@@ -21,7 +21,7 @@ def cart(request):
         cartItems = order["get_cart_items"]
 
     context = {"items": items, "order": order, "cartItems": cartItems}
-    return render(request, "cart.html", context)
+    return render(request, "cart/cart.html", context)
 
 
 @login_required(login_url="login")

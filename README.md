@@ -50,17 +50,23 @@ Each project task was defined as a **User Story** and categorized into priority 
 - **Should have**
 - **Could have**
 
+<br>
+
 ![issues](docs/images/agile/agile_issues.png)
 
+<br>
+
 These stories were then assigned to specific **Milestones** and given complexity-based **story points**. The primary focus was on completing the **Must have** stories first, followed by the **Should haves**, and, if time allowed, the **Could haves**. This sequencing ensured that essential project requirements were addressed upfront, providing a comprehensive foundation before adding desirable features.
+
 <br>
 
 ![milestones](docs/images/agile/agile_milestones.png)
 
+<br>
+
 A **Kanban board** was established using **GitHub Projects**, accessible [here](link to the Kanban board), where more detailed information about project tasks can be found through project cards. Notably, all stories, except those related to docs, were accompanied by well-defined **acceptance criteria**. These criteria served as clear guidelines for determining when a story could be considered complete.
 
 
-Certainly, here are the various user stories and tasks written in Markdown format:
 ### User Stories and Tasks
 
 #### Managing Orders (Site Administrator)
@@ -130,60 +136,235 @@ These user stories and tasks outline various actions and objectives for both sit
   - "Login / Sign Up" button for non-authenticated users.
 - **Shopping Cart Icon**: Displays the number of items in the user's cart and links to the cart page.
 
-
+<br>
 
 ## Home Page
+
+![slideshow](docs/images/screenshots/desktop/slideshow.gif)
+
 - Displays a carousel with product images that users can interact with.
 - Provides a grid of product listings with images, names, prices, and "View Details" and "Add to Cart" buttons.
 - Responsive design for various screen sizes.
 
+<br>
+
 ## Store Page
+
+![store](docs/images/screenshots/desktop/store.png)
+
 - Lists products with images, names, prices, and "View Details" and "Add to Cart" buttons.
 - Allows users to view product details by clicking on a product.
 - Responsive design for product listings.
 
+<br>
+
 ## Product Detail Page
+
+![details ](docs/images/screenshots/desktop/product_details.png)
+
 - Displays product details including name, description, price, and an image.
 - Allows users to add the product to their cart.
 - Shows product reviews and ratings.
 - Provides a button to leave a review (for authenticated users).
 
+<br>
+
 ## User Profile and Edit Profile
+
+![edit profile](docs/images/screenshots/desktop/edit_profile.png)
+
 - Allows users to view and edit their profile information (for authenticated users).
 - User can edit their name and email.
 - Displays success messages upon profile updates.
 
+<br>
+
 ## Cart Page
+
+![cart](docs/images/screenshots/desktop/cart.png)
+
 - Shows a list of items in the user's cart with names, quantities, and total prices.
 - Allows users to update item quantities or remove items.
+- User can view details of the product by clicking on the product name
 - Provides a "Proceed to Checkout" button.
 
+<br>
+
 ## Checkout Page
-- Displays a payment form for users to enter shipping and payment information.
+
+![checkout](docs/images/screenshots/desktop/checkout.png)
+
+- Displays a payment form for users to enter shipping information.
 - Supports secure payment processing.
 - Shows order summary and total.
 - Confirms successful payment with an order confirmation or success page.
 
+<br>
+
 ## Contact Page
+
+![contact](docs/images/screenshots/desktop/contact.png)
+
 - Provides a form for users to submit messages with fields for name, email, and message.
 - Validates user input and sends messages successfully.
 - Responsive design for the contact form.
 
+<br>
+
 ## Footer
+
+![Alt text](docs/images/screenshots/desktop/footer.jpg)
+
 - Displays social media icons with links (Facebook, Twitter, Google, Instagram, LinkedIn, GitHub).
 - Includes a copyright notice with a link to the website creator's portfolio.
 
+
+<br>
+
+## 404 - Page Not Found
+
+![404](docs/images/screenshots/desktop/404.png)
+
+This page serves as a user-friendly 404 (Page Not Found) error page to inform visitors that the requested page does not exist on the website.
+
+## Features
+
+- **Page Title:** Displays a prominent "404 - Page Not Found" title in red text to catch the user's attention.
+
+- **Error Message:** Provides a brief error message informing the user that the page they are looking for does not exist.
+
+- **Return to Home:** Offers a link to the home page, allowing users to easily navigate back to the main page by clicking on the "Return to the home page link.
+
+## Page Structure
+
+The 404 page is structured as follows:
+
+- **Header:** The website's header, including the site logo, navigation menu, and any other common elements, is not present on the 404 page to keep it simple and focused.
+
+- **Main Content:** The main content of the 404 page consists of a jumbotron or banner at the center of the page. Within this banner:
+    - The "404 - Page Not Found" title is displayed in a large, red font to clearly indicate the error.
+    - A short error message informs the user that the requested page does not exist.
+    - A "Return to the home page" link is provided, directing users to the main page of the website.
+
+- **Footer:** A minimal footer is included at the bottom of the page, displaying social media icons for various platforms, as well as the copyright information. The footer remains consistent with the website's design.
+
+## Design and Styling
+
+The page follows the overall design and styling of the website to maintain a cohesive user experience. It uses the website's color scheme, fonts, and icons for consistency.
+
+## Navigation
+
+The 404 page includes a single navigation link that allows users to return to the home page. This link is styled as a clickable text.
+
+## Social Media Links
+
+In the footer section, social media icons with links to various social media profiles are provided. Users can click on these icons to visit the website owner's social media pages.
+
+## Copyright Information
+
+The footer also contains copyright information with a link to the website owner's portfolio.
+
+---
+
+By providing a user-friendly and informative 404 error page, visitors who encounter missing or broken links can easily navigate back to the home page or explore other parts of the website.
+
+---
+
+# Payment Process Features and Elements
+
+<br>
+
+## Payment Page
+
+
+
+- A checkout page that displays a payment form for users to enter shipping and payment information.
+- Supports secure payment processing.
+
+<br>
+## Payment Form
+
+![payment from](docs/images/screenshots/desktop/payment.png)
+
+- Includes a payment form with the following elements:
+  - **Card Element**: A Stripe card element where users can enter their credit card information securely.
+  - **CSRF Token**: Ensures security by including a CSRF token in the form.
+  - **Error Display**: A section to display form errors in case of payment issues.
+
+## Stripe Integration
+- Integrates with the Stripe payment gateway for processing payments securely.
+- Uses the Stripe.js library to handle card payments.
+- Configures the Stripe.js library with the Stripe publishable key from the Django settings.
+
+## Payment Confirmation
+- Handles form submission through JavaScript and prevents the default form submission behavior.
+- Calls the Stripe `confirmCardPayment` method to initiate the payment confirmation process with the provided `client_secret`.
+- Displays any payment errors to the user if the payment is not successful.
+
+## Payment Success Page
+
+![success](docs/images/screenshots/desktop/success.png)
+
+- Redirects the user to a "Payment Success" page upon successful payment confirmation.
+- Displays a success message to the user confirming that the payment was received.
+- Provides a link to return to the home page.
+
+## Extends Base Template
+- Utilizes the base HTML template (`store/base.html`) for consistent website branding and navigation elements.
+- Loads static assets and defines content blocks as needed.
+
+These features and elements together create a seamless payment process within the website, allowing users to securely enter payment information, receive payment confirmation, and proceed to a payment success page.
+
+<br>
+
 ## Additional Functionality
-- Lightbox feature for product images.
+
+![lightbox](docs/images/screenshots/desktop/lightbox.gif)
+
+![reviews](docs/images/screenshots/desktop/reviews.gif)
+
+![cart messages](docs/images/screenshots/desktop/cart_messaged.gif)
+
+<br> 
+
+- Lightbox feature for product images. Users can click on an image to view it in a larger size. Footer hides when lightbox is open.
 - Star rating system for product reviews.
+- Cart notification messages to inform users of cart updates.
 - Ability to leave product reviews and view existing ones.
 - User registration and login functionality.
-- "Forgot Password" functionality.
-- Custom lightbox for enlarging images.
+
 
 These features and elements create a comprehensive e-commerce website with essential user interface components and functionality for users to browse, shop, and interact with products and reviews.
 
 ---
+
+# Favicon Implementation
+
+![favicon](docs/images/screenshots/desktop/favicon.png)
+
+## Description
+- **Favicon**: Added a website favicon for improved user experience and branding.
+- **Purpose**: Favicon is a small icon displayed in the browser tab or bookmark list, making it easier for users to identify and remember your website.
+
+---
+
+## Implementation Details
+- **Favicon Image**: Designed or selected a suitable favicon image (usually in .ico, .png, or .svg format) that represents the website or brand identity.
+- **HTML Integration**: Inserted the favicon into the website's HTML code by including a `<link>` tag in the `<head>` section of each HTML page.
+- **Consistency**: Ensured that the same favicon is used across all pages for a cohesive user experience.
+- **Browser Compatibility**: Checked and confirmed that the favicon displays correctly across different web browsers.
+
+## Benefits
+- **Brand Recognition**: A favicon reinforces brand recognition by displaying a unique logo or symbol associated with the website.
+- **User-Friendly**: Enhances user experience by providing a visual identifier for the website in browser tabs.
+- **Professionalism**: Adds a professional touch to the website, indicating attention to detail.
+- **Bookmarking**: Makes it easier for users to locate and identify the website in their bookmarks or history.
+
+
+By implementing a favicon, the website enhances its visual appeal and user-friendliness, contributing to a more memorable and professional online presence.
+
+---
+
 # User Experience on Website
 
 ## Home Page
@@ -264,6 +445,145 @@ The website provides a seamless and enjoyable user experience, from browsing pro
 - **User Registration**: New customers can create accounts on the website, granting them the ability to start shopping and leave reviews.
 
 ---
+
+## Wireframes
+
+### Desktop View
+
+**Home page**
+
+![store](docs/wireframe/desktop/store.png)
+
+**Product details**
+
+![product details](docs/wireframe/desktop/product_detail.png)
+
+**Cart**
+
+![cart](docs/wireframe/desktop/cart.png)
+
+**Checkout**
+
+![checkout](docs/wireframe/desktop/checkout.png)
+
+**Contact**
+
+![contact](docs/wireframe/desktop/contact.png)
+
+**Contact Successfull**
+
+![contact successful](docs/wireframe/desktop/contact_successful.png)
+
+**Edit profile**
+
+![edit profile](docs/wireframe/desktop/edit_profile.png)
+
+**Login**
+
+![login](docs/wireframe/desktop/login.png)
+
+**Register**
+
+![register](docs/wireframe/desktop/register.png)
+
+**Product Reviews**
+
+![product reviews](docs/wireframe/desktop/leave_review.png)
+
+**Payment Form**
+
+![payment form](docs/wireframe/desktop/payment_form.png)
+
+**Payment Success**
+
+![payment success](docs/wireframe/desktop/payment_successful.png)
+
+**Lightbox**
+
+![lightbox](docs/wireframe/desktop/lightbox.png)
+
+**404 - Page Not Found**
+
+![404](docs/wireframe/desktop/404_desktop.jpg)
+
+---
+
+### Mobile View
+
+<br>
+
+**Home page**
+
+<img src='docs/wireframe/mobile/store1_mob.png' width='300px'>
+<img src='docs/wireframe/mobile/store_mob.png' width='300px'>
+
+<br>
+
+**Product details**
+
+<img src='docs/wireframe/mobile/product_details_mob.png' width='300px'>
+
+<br>
+
+**Cart**
+
+<img src='docs/wireframe/mobile/cart_mob.png' width='300px'>
+
+<br>
+
+**Checkout**
+
+<img src='docs/wireframe/mobile/checkout_mob.png' width='300px'>
+<img src='docs/wireframe/mobile/checkout1_mob.png' width='300px'>
+
+<br>
+
+**Contact** / **Burger Menu**
+
+<img src='docs/wireframe/mobile/contact_mob.png' width='300px'> 
+<img src='docs/wireframe/mobile/menu_mob.png' width='300px'>
+<br>
+
+**Edit profile** / **Login**
+
+<img src='docs/wireframe/mobile/edit_profile_mob.png' width='300px'>
+<img src='docs/wireframe/mobile/login_mob.png' width='300px'>
+
+<br>
+
+
+**Register** / **Product Reviews**
+
+<img src='docs/wireframe/mobile/register_mob.png' width='300px'>
+<img src='docs/wireframe/mobile/product_reviews_mob.png' width='300px'>
+
+<br>
+
+**Payment Form** / **Payment Success**
+
+<img src='docs/wireframe/mobile/payment_mob.png' width='300px'>
+<img src='docs/wireframe/mobile/payment_success_mob.png' width='300px'>
+
+<br>
+
+**Lightbox** / **404 - Page Not Found**
+
+<img src='docs/wireframe/mobile/lightbox_mob.png' width='300px'>
+<img src='docs/wireframe/mobile/404_mob.png' width='300px'>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Deployment
 
@@ -346,6 +666,106 @@ To deploy the project, the following steps were taken:
 
 ---
 
+## Database Design and Functionality
+
+![database](docs/images/database.jpeg)
+
+### User Authentication
+- Registered users can create accounts and log in using Django Allauth.
+- The `User` model from Django's built-in `auth` module is extended to include user-specific information.
+
+### Customer Profile
+- Each registered user has a corresponding `Customer` profile, established through a one-to-one relationship.
+- The `Customer` model stores user-related information such as name, email, and address.
+
+### Products
+- The `Product` model represents the products available in the store.
+- Users can perform CRUD operations on products based on their permissions.
+- Each product has a name, image, category, description, price, and a flag indicating whether it's digital or physical.
+
+### Product Reviews
+- Registered users can submit product reviews, including ratings and feedback.
+- The `ProductReview` model establishes a many-to-one relationship between products and customers for reviews.
+- Reviews include ratings, feedback, and the date they were added.
+
+### Shopping Cart
+- Users can add products to their shopping carts, and this data is associated with their customer profile.
+- The `Order` model represents a user's order, which includes information like the order date and transaction ID.
+- The shopping cart can be marked as "complete" when the user proceeds to checkout.
+
+### Order Items
+- The `OrderItem` model links products, orders, and customers.
+- Users can add, update, or remove items from their cart, which creates or modifies order items.
+- Order items have quantities and a date added.
+
+### Shipping Information
+- Users can provide shipping information when proceeding to checkout.
+- The `ShippingAddress` model connects customers and orders, storing address details.
+- Shipping information is associated with an order.
+
+### CRUD Functionality
+- Registered users have CRUD functionality for products, allowing them to:
+  - Read product details and reviews.
+  - Update product information.
+- Users can also perform CRUD operations on their shopping carts:
+  - Add products to the cart.
+  - Update the quantity of items in the cart.
+  - Remove items from the cart.
+  - Complete an order.
+- CRUD operations are available for product reviews:
+  - Add a review.
+  - Read existing reviews.
+- Shipping information can be created, read, updated, and deleted by users during checkout.
+
+This database design and functionality provide registered users with a comprehensive e-commerce experience, including the ability to manage their profiles, browse products, add items to their cart, submit reviews, and complete orders. It follows best practices for Django-based web applications and provides a smooth shopping experience.
+
+---
+
+## Database Security Measures
+
+### Authentication and Authorization
+- The project uses Django's built-in authentication system, which securely stores user passwords using hash algorithms.
+- Access to specific CRUD operations and database records is controlled through Django's authorization system.
+- Only registered users with the appropriate permissions can perform sensitive operations such as adding, updating, or deleting products.
+
+### Data Validation and Sanitization
+- Input validation is enforced at the application level to prevent SQL injection and other common web vulnerabilities.
+- Django's forms and model validations help ensure that data entering the database adheres to predefined rules, reducing the risk of data corruption.
+
+### CSRF Protection
+- The project uses Django's built-in Cross-Site Request Forgery (CSRF) protection.
+- This protection mechanism generates and verifies tokens for form submissions, preventing malicious actors from executing unauthorized actions on behalf of users.
+
+### HTTPS Encryption
+- Secure Socket Layer (SSL) or Transport Layer Security (TLS) encryption is utilized to secure data transmission between the user's browser and the server.
+- This ensures that sensitive information, such as login credentials and payment details, is encrypted during transit.
+
+### Permissions and Access Control
+- Granular permissions are assigned to user roles (e.g., customers, administrators) to restrict access to specific database records and functionalities.
+- Role-based access control (RBAC) helps prevent unauthorized access to critical data and operations.
+
+### Strong Password Policies
+- The project enforces strong password policies to encourage users to create complex passwords.
+- This includes minimum length requirements, character diversity, and password expiration policies.
+
+### Input Validation
+- User inputs, such as form data, are thoroughly validated and sanitized to prevent malicious input from compromising the database.
+- Validation rules are enforced both on the client and server sides to ensure data integrity.
+
+### Error Handling
+- Detailed error messages are handled carefully to prevent exposing sensitive information in error responses.
+- Generic error messages are presented to users, while more detailed errors are logged for debugging purposes.
+
+By implementing these security measures, the current database design aims to protect sensitive user data, prevent common web vulnerabilities, and maintain the integrity and confidentiality of the application's database. However, it's essential to continually monitor and update security practices to stay resilient against emerging threats.
+
+---
+## Design Elements Used in Django Templates
+1. **Color Theme:** The templates use a consistent color theme with a dark background (`bg-dark`) for headers and footers, light backgrounds for content sections, and contrasting text colors (`text-white` on dark backgrounds). Buttons and elements have carefully chosen color schemes for visual appeal and clarity.
+
+2. **Typography:** Typography is employed to create a clear hierarchy of content. Headings use varying font sizes to establish visual distinctions, and Bootstrap classes are used to style form elements and buttons for consistency and readability. Fonts are kept standard for better web compatibility.
+
+3. **Imagery:** Images are used strategically to enhance visual appeal and convey information. Product detail pages showcase product images with a lightbox effect for a better view. Social media icons provide visual cues and links in the footer.
+
 # Manual Testing Checklist - SiP Home E-Commerce Website
 
 ## Home Page
@@ -425,22 +845,15 @@ This manual testing checklist can serve as a starting point for ensuring the fun
 - **Bootstrap**: The project uses Bootstrap for styling.
 - **jQuery**: The project uses jQuery for interactivity.
 - **Font Awesome**: The project uses Font Awesome for icons.
-- **Google Fonts**: The project uses Google Fonts for typography.
 - **Git**: The project uses Git for version control.
 - **GitHub**: The project uses GitHub for version control.
 - **GitPod**: The project uses GitPod as the IDE.
-- **Justinmind**: The project uses Justinmind for wireframing.
+- **Justinmind and Photoshop**: The project uses Justinmind for wireframing.
+- **Lucidchart**: The project uses Lucidchart for database modeling.
 - **Gunicorn**: The project uses Gunicorn as the WSGI HTTP Server.
 - **PIP**: The project uses PIP as the package manager.
-- **PIPENV**: The project uses PIPENV for virtual environment.
-- **Boto3**: The project uses Boto3 to connect to AWS services.
 - **Django Allauth**: The project uses Django Allauth for user authentication.
-- **Django Crispy Forms**: The project uses Django Crispy Forms for styling forms.
-- **Django Countries**: The project uses Django Countries to provide country choices.
-- **Django Storages**: The project uses Django Storages to connect to AWS S3.
-- **Pillow**: The project uses Pillow to handle images.
 - **Psycopg2**: The project uses Psycopg2 to connect to PostgreSQL.
-- **Whitenoise**: The project uses Whitenoise to serve static files.
 - **W3C Markup Validator**: The project uses W3C Markup Validator to validate HTML code.
 - **W3C CSS Validator**: The project uses W3C CSS Validator to validate CSS code.
 - **JSHint**: The project uses JSHint to validate JavaScript code.
@@ -449,8 +862,10 @@ This manual testing checklist can serve as a starting point for ensuring the fun
 - **VSCode**: The project uses VSCode as the code editor.
 - **ElephantSQL**: The project uses ElephantSQL as the PostgreSQL database provider.
 - **Cloudinary**: The project uses Cloudinary to store images.
-- **Django Debug Toolbar**: The project uses Django Debug Toolbar to debug the project.
 - **SQLAlchemy**: The project uses SQLAlchemy to connect to PostgreSQL.
+- **asgiref**: ASGI (Asynchronous Server Gateway Interface) reference implementation.
+- **dj-database-url**: A Django utility for parsing database URLs from an environment variable.
+- **Favicon**: The project uses a favicon for improved user experience and branding.
 
 ---
 
