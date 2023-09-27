@@ -73,7 +73,8 @@ class ProductDetailView(DetailView):
                 currency='DKK',
             )
 
-            return render(request, 'payments/payment_form.html', {'client_secret': intent.client_secret})
+            return render(request, 'payments/payment_form.html',
+                          {'client_secret': intent.client_secret})
 
 
 class ProductListView(ListView):

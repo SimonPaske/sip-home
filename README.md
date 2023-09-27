@@ -1,10 +1,141 @@
 # **Photography E-Commerce Website**
 
 Welcome to the Photography E-Commerce Website! This platform is designed to provide users with a seamless experience for browsing, purchasing, and interacting with a collection of stunning photo prints. Whether you're a photography enthusiast or simply looking to adorn your space with beautiful visuals, this website has something for everyone.
-
 you can find website --> [here](https://sip-home-a6dbdb394c52.herokuapp.com)
 
+<br>
+
+![mockup](docs/images/screenshots/mockup1.jpg) ![mockup](docs/images/screenshots/mockup2.jpg) ![mockup](docs/images/screenshots/mockup3.jpg) ![mockup](docs/images/screenshots/mockup4.jpg) ![mockup](docs/images/screenshots/mockup5.jpg) ![mockup](docs/images/screenshots/mockup6.jpg) ![mockup](docs/images/screenshots/mockup7.jpg)
+
 ---
+
+# Table of Contents
+
+# Table of Contents
+
+- [**Photography E-Commerce Website**](#photography-e-commerce-website)
+- [Table of Contents](#table-of-contents)
+- [Table of Contents](#table-of-contents-1)
+  - [The-Strategy](#the-strategy)
+  - [Site Goals](#site-goals)
+    - [1. E-commerce Platform](#1-e-commerce-platform)
+    - [2. User Management](#2-user-management)
+    - [3. Content Management](#3-content-management)
+    - [4. Payment Processing](#4-payment-processing)
+    - [5. Customer Interaction](#5-customer-interaction)
+    - [6. Responsive Design](#6-responsive-design)
+    - [7. Documentation](#7-documentation)
+    - [Agile Planning](#agile-planning)
+    - [User Stories and Tasks](#user-stories-and-tasks)
+      - [Managing Orders (Site Administrator)](#managing-orders-site-administrator)
+      - [Reviewing Comments (Site Administrator)](#reviewing-comments-site-administrator)
+      - [Managing Photo Prints (Site Administrator)](#managing-photo-prints-site-administrator)
+      - [User Profile Management (User)](#user-profile-management-user)
+      - [Placing an Order (Buyer)](#placing-an-order-buyer)
+      - [Proceeding to Checkout (Customer)](#proceeding-to-checkout-customer)
+      - [Managing Cart (Shopper)](#managing-cart-shopper)
+      - [Review Photos (User)](#review-photos-user)
+      - [Adding to Cart (Shopper)](#adding-to-cart-shopper)
+      - [Browsing Photos (User)](#browsing-photos-user)
+      - [User Registration (New Customer)](#user-registration-new-customer)
+- [Features](#features)
+- [Website Features and Elements](#website-features-and-elements)
+  - [Navigation Bar](#navigation-bar)
+  - [Home Page](#home-page)
+  - [Store Page](#store-page)
+  - [Product Detail Page](#product-detail-page)
+  - [User Profile and Edit Profile](#user-profile-and-edit-profile)
+  - [Cart Page](#cart-page)
+  - [Checkout Page](#checkout-page)
+  - [Contact Page](#contact-page)
+  - [Footer](#footer)
+  - [404 - Page Not Found](#404---page-not-found)
+  - [Features](#features-1)
+  - [Page Structure](#page-structure)
+  - [Design and Styling](#design-and-styling)
+  - [Navigation](#navigation)
+  - [Social Media Links](#social-media-links)
+  - [Copyright Information](#copyright-information)
+- [Payment Process Features and Elements](#payment-process-features-and-elements)
+  - [Payment Page](#payment-page)
+  - [Payment Form](#payment-form)
+  - [Stripe Integration](#stripe-integration)
+  - [Payment Confirmation](#payment-confirmation)
+  - [Payment Success Page](#payment-success-page)
+  - [Extends Base Template](#extends-base-template)
+  - [Additional Functionality](#additional-functionality)
+- [Favicon Implementation](#favicon-implementation)
+  - [Description](#description)
+  - [Implementation Details](#implementation-details)
+  - [Benefits](#benefits)
+- [User Experience on Website](#user-experience-on-website)
+  - [Home Page](#home-page-1)
+  - [Store Page](#store-page-1)
+  - [User Profile and Edit Profile](#user-profile-and-edit-profile-1)
+  - [Cart Page](#cart-page-1)
+  - [Checkout Page](#checkout-page-1)
+  - [Product Reviews](#product-reviews)
+  - [Registration and Login](#registration-and-login)
+  - [Contact Page](#contact-page-1)
+  - [Overall Experience](#overall-experience)
+  - [User Interaction](#user-interaction)
+  - [Shopping Experience](#shopping-experience)
+  - [Admin Management](#admin-management)
+  - [User Accounts](#user-accounts)
+  - [Wireframes](#wireframes)
+    - [Desktop View](#desktop-view)
+    - [Mobile View](#mobile-view)
+  - [Database Design and Functionality](#database-design-and-functionality)
+    - [User Authentication](#user-authentication)
+    - [Customer Profile](#customer-profile)
+    - [Products](#products)
+    - [Product Reviews](#product-reviews-1)
+    - [Shopping Cart](#shopping-cart)
+    - [Order Items](#order-items)
+    - [Shipping Information](#shipping-information)
+    - [CRUD Functionality](#crud-functionality)
+  - [Database Security Measures](#database-security-measures)
+    - [Authentication and Authorization](#authentication-and-authorization)
+    - [Data Validation and Sanitization](#data-validation-and-sanitization)
+    - [CSRF Protection](#csrf-protection)
+    - [HTTPS Encryption](#https-encryption)
+    - [Permissions and Access Control](#permissions-and-access-control)
+    - [Strong Password Policies](#strong-password-policies)
+    - [Input Validation](#input-validation)
+    - [Error Handling](#error-handling)
+  - [Design Elements Used in Django Templates](#design-elements-used-in-django-templates)
+  - [Deployment](#deployment)
+  - [Technologies](#technologies)
+    - [Frameworks, Libraries, and Programs Used](#frameworks-libraries-and-programs-used)
+    - [Languages Used:](#languages-used)
+- [Testing](#testing)
+  - [Manual Testing Checklist - SiP Home E-Commerce Website](#manual-testing-checklist---sip-home-e-commerce-website)
+  - [Home Page](#home-page-2)
+  - [Store Page](#store-page-2)
+  - [User Profile and Edit Profile](#user-profile-and-edit-profile-2)
+  - [Cart Page](#cart-page-2)
+  - [Checkout Page](#checkout-page-2)
+  - [Product Reviews](#product-reviews-2)
+  - [Registration and Login](#registration-and-login-1)
+  - [Contact Page](#contact-page-2)
+  - [Overall Experience](#overall-experience-1)
+  - [Performance](#performance)
+  - [Validator testing](#validator-testing)
+  - [](#)
+  - [Checking Website Responsiveness in Different Browsers](#checking-website-responsiveness-in-different-browsers)
+    - [Google Chrome](#google-chrome)
+    - [Apple Safari](#apple-safari)
+    - [Mozilla Firefox](#mozilla-firefox)
+- [Credits](#credits)
+  - [Code](#code)
+    - [Star Rating](#star-rating)
+    - [User Registration](#user-registration)
+    - [Lightbox](#lightbox)
+    - [Back to top](#back-to-top)
+    - [Stripe](#stripe)
+    - [Additional code sources](#additional-code-sources)
+    - [Media](#media)
+
 
 ## The-Strategy
 
@@ -213,13 +344,15 @@ These user stories and tasks outline various actions and objectives for both sit
 
 ## Footer
 
-![Alt text](docs/images/screenshots/desktop/footer.jpg)
+![footer](docs/images/screenshots/desktop/footer.jpg)
 
 - Displays social media icons with links (Facebook, Twitter, Google, Instagram, LinkedIn, GitHub).
 - Includes a copyright notice with a link to the website creator's portfolio.
 
 
 <br>
+
+---
 
 ## 404 - Page Not Found
 
@@ -325,14 +458,16 @@ These features and elements together create a seamless payment process within th
 
 ![cart messages](docs/images/screenshots/desktop/cart_messaged.gif)
 
+![backt to top](docs/images/screenshots/mobile/back_to_top.gif)
+
 <br> 
 
 - Lightbox feature for product images. Users can click on an image to view it in a larger size. Footer hides when lightbox is open.
 - Star rating system for product reviews.
 - Cart notification messages to inform users of cart updates.
+- Back to top disappearing button after 5s of inactivity
 - Ability to leave product reviews and view existing ones.
 - User registration and login functionality.
-
 
 These features and elements create a comprehensive e-commerce website with essential user interface components and functionality for users to browse, shop, and interact with products and reviews.
 
@@ -568,98 +703,8 @@ The website provides a seamless and enjoyable user experience, from browsing pro
 
 <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Deployment
-
-The project was stored on GitHub and deployed on Heroku. Before deployment make sure that a requirements.txt file is created using the command `pip3 freeze > requirements.txt`.
-To deploy the project, the following steps were taken:
-
-1. Log in to [ElephantSQL.com](https://www.elephantsql.com/) to access your dashboard
-![new instance](docs/images/deployment/elephantSQL.png)
-
-1. Set up your plan and select region.
-![select plan and region](docs/images/deployment/elephantSQL1.png)
-
-1. Select a data center near you
-![select region](docs/images/deployment/elephantSQL2.png)
-
-1. Then click “Review”
-![review](docs/images/deployment/elephantSQL3.png)
-
-1. Click “Create Instance”
-![create instance](docs/images/deployment/elephantSQL4.png)
-
-1. Click on the instance you just created
-![select instance](docs/images/deployment/elephantSQL5.png)
-
-1. In the URL section, click the copy icon to copy the database URL.
-![copy](docs/images/deployment/elephantSQL6.png)
-
-1. Create a file called **env.py**.
-   1. In your **env.py** file add the following line of code  **import os**
-   2. First, add a blank line, then set a DATABASE_URL variable, with the value you just copied from ElephantSQL as follows and then create a SECRET_KEY variable:
-![database url](docs/images/deployment/database_url.png)
-![secret key](docs/images/deployment/secret_key.png)
-
-1. Create a Procfile. In the Procfile, add the following line of code with your app name:
-`web: gunicorn appname.wsgi`
-
-1. Migrate you models to the database using the command `python3 manage.py migrate`.
-2. Add, commit, and push the changes to GitHub.
-3. Connect the GitHub repository to the Heroku app.
-4. Create a new app on Heroku.
-![new app](docs/images/deployment/heroku1.png)
-
-1. Give your app a name and select the region closest to you. When you’re done, click “Create app” to confirm
-![app name](docs/images/deployment/heroku2.png)
-
-1. Click on Heroku dashboard open the Settings tab
-    ![settings](docs/images/deployment/heroku3.png)
-
-2. Set the following config vars in Heroku:
-    - AWS_ACCESS_KEY_ID
-    - AWS_SECRET_ACCESS_KEY
-    - DATABASE_URL
-    - EMAIL_HOST_PASS
-    - EMAIL_HOST_USER
-    - SECRET_KEY
-    - STRIPE_PUBLIC_KEY
-    - STRIPE_SECRET_KEY
-    - STRIPE_WH_SECRET
-    - USE_AWS
-    - DISABLE_COLLECTSTATIC
-    ![config vars](docs/images/deployment/heroku4.png)
-
-3. In the Heroku dashboard, click on the “Deploy” tab, then scroll down to “Deployment method” and select GitHub.
-![deployment](docs/images/deployment/heroku5.png)
-
-1. In the “Connect to GitHub” section, make sure your GitHub profile is displayed, then add your repository name and click “Search”.
-![connect](docs/images/deployment/heroku6.png)
-
-20. Once your repo is found, click “Connect” to complete the connection.
-![search](docs/images/deployment/heroku7.png)
-
-21. In the “Automatic deploys” section, click “Enable Automatic Deploys” to deploy the app to Heroku every time you push to GitHub.
-![enable automatic](docs/images/deployment/heroku8.png)
-
-22. In the “Manual deploy” section, select the master branch then click “Deploy Branch”.
-![deploy](docs/images/deployment/heroku9.png)
-
-23. Once the build is complete, click “View” to launch your new app.
-![view](docs/images/deployment/heroku10.png)
-
 ---
+
 
 ## Database Design and Functionality
 
@@ -761,7 +806,138 @@ By implementing these security measures, the current database design aims to pro
 
 3. **Imagery:** Images are used strategically to enhance visual appeal and convey information. Product detail pages showcase product images with a lightbox effect for a better view. Social media icons provide visual cues and links in the footer.
 
-# Manual Testing Checklist - SiP Home E-Commerce Website
+---
+## Deployment
+
+The project was stored on GitHub and deployed on Heroku. Before deployment make sure that a requirements.txt file is created using the command `pip3 freeze > requirements.txt`.
+To deploy the project, the following steps were taken:
+
+1. Log in to [ElephantSQL.com](https://www.elephantsql.com/) to access your dashboard
+![new instance](docs/images/deployment/elephantSQL.png)
+
+1. Set up your plan and select region.
+![select plan and region](docs/images/deployment/elephantSQL1.png)
+
+1. Select a data center near you
+![select region](docs/images/deployment/elephantSQL2.png)
+
+1. Then click “Review”
+![review](docs/images/deployment/elephantSQL3.png)
+
+1. Click “Create Instance”
+![create instance](docs/images/deployment/elephantSQL4.png)
+
+1. Click on the instance you just created
+![select instance](docs/images/deployment/elephantSQL5.png)
+
+1. In the URL section, click the copy icon to copy the database URL.
+![copy](docs/images/deployment/elephantSQL6.png)
+
+1. Create a file called **env.py**.
+   1. In your **env.py** file add the following line of code  **import os**
+   2. First, add a blank line, then set a DATABASE_URL variable, with the value you just copied from ElephantSQL as follows and then create a SECRET_KEY variable:
+![database url](docs/images/deployment/database_url.png)
+![secret key](docs/images/deployment/secret_key.png)
+
+1. Create a Procfile. In the Procfile, add the following line of code with your app name:
+`web: gunicorn appname.wsgi`
+
+1. Migrate you models to the database using the command `python3 manage.py migrate`.
+2. Add, commit, and push the changes to GitHub.
+3. Connect the GitHub repository to the Heroku app.
+4. Create a new app on Heroku.
+![new app](docs/images/deployment/heroku1.png)
+
+1. Give your app a name and select the region closest to you. When you’re done, click “Create app” to confirm
+![app name](docs/images/deployment/heroku2.png)
+
+1. Click on Heroku dashboard open the Settings tab
+    ![settings](docs/images/deployment/heroku3.png)
+
+2. Set the following config vars in Heroku:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - DATABASE_URL
+    - EMAIL_HOST_PASS
+    - EMAIL_HOST_USER
+    - SECRET_KEY
+    - STRIPE_PUBLIC_KEY
+    - STRIPE_SECRET_KEY
+    - STRIPE_WH_SECRET
+    - USE_AWS
+    - DISABLE_COLLECTSTATIC
+    ![config vars](docs/images/deployment/heroku4.png)
+
+3. In the Heroku dashboard, click on the “Deploy” tab, then scroll down to “Deployment method” and select GitHub.
+![deployment](docs/images/deployment/heroku5.png)
+
+1. In the “Connect to GitHub” section, make sure your GitHub profile is displayed, then add your repository name and click “Search”.
+![connect](docs/images/deployment/heroku6.png)
+
+20. Once your repo is found, click “Connect” to complete the connection.
+![search](docs/images/deployment/heroku7.png)
+
+21. In the “Automatic deploys” section, click “Enable Automatic Deploys” to deploy the app to Heroku every time you push to GitHub.
+![enable automatic](docs/images/deployment/heroku8.png)
+
+22. In the “Manual deploy” section, select the master branch then click “Deploy Branch”.
+![deploy](docs/images/deployment/heroku9.png)
+
+23. Once the build is complete, click “View” to launch your new app.
+![view](docs/images/deployment/heroku10.png)
+
+---
+## Technologies
+
+### Frameworks, Libraries, and Programs Used
+
+- **Django**: The project uses Django as the web framework.
+- **PostgreSQL**: The project uses PostgreSQL as the database.
+- **Heroku**: The project is deployed on Heroku.
+- **AWS S3**: The project uses AWS S3 to store static and media files.
+- **Stripe**: The project uses Stripe to handle payments.
+- **Bootstrap**: The project uses Bootstrap for styling.
+- **jQuery**: The project uses jQuery for interactivity.
+- **Font Awesome**: The project uses Font Awesome for icons.
+- **Git**: The project uses Git for version control.
+- **GitHub**: The project uses GitHub for version control.
+- **GitPod**: The project uses GitPod as the IDE.
+- **Justinmind and Photoshop**: The project uses Justinmind for wireframing.
+- **Lucidchart**: The project uses Lucidchart for database modeling.
+- **Gunicorn**: The project uses Gunicorn as the WSGI HTTP Server.
+- **PIP**: The project uses PIP as the package manager.
+- **Django Allauth**: The project uses Django Allauth for user authentication.
+- **Psycopg2**: The project uses Psycopg2 to connect to PostgreSQL.
+- **W3C Markup Validator**: The project uses W3C Markup Validator to validate HTML code.
+- **W3C CSS Validator**: The project uses W3C CSS Validator to validate CSS code.
+- **JSHint**: The project uses JSHint to validate JavaScript code.
+- **PEP8**: The project uses PEP8 to validate Python code.
+- **Chrome DevTools**: The project uses Chrome DevTools for testing and debugging.
+- **VSCode**: The project uses VSCode as the code editor.
+- **ElephantSQL**: The project uses ElephantSQL as the PostgreSQL database provider.
+- **Cloudinary**: The project uses Cloudinary to store images.
+- **SQLAlchemy**: The project uses SQLAlchemy to connect to PostgreSQL.
+- **asgiref**: ASGI (Asynchronous Server Gateway Interface) reference implementation.
+- **dj-database-url**: A Django utility for parsing database URLs from an environment variable.
+- **Favicon**: The project uses a favicon for improved user experience and branding.
+- **MagicMockup**: The project uses MagicMockup to generate mockup images.
+
+---
+
+### Languages Used:
+
+- **HTML**: The project uses HTML to structure the content.
+- **CSS**: The project uses CSS to style the content.
+- **JavaScript**: The project uses JavaScript to add interactivity.
+- **Python**: The project uses Python to handle the backend functionality.
+- **Markdown**: The project uses Markdown to write the README file.
+- **JSON**: The project uses JSON to store data.
+- **SQL**: The project uses SQL to query the database.
+
+---
+# Testing
+
+## Manual Testing Checklist - SiP Home E-Commerce Website
 
 ## Home Page
 
@@ -784,7 +960,30 @@ By implementing these security measures, the current database design aims to pro
 - [x] Edit the user's profile by modifying the name and email address and confirm that changes are saved successfully.
 - [x] Ensure that appropriate success messages are displayed after profile edits.
 
-**Found a bug. When you edit the profile and click save, the page saves changes and redirects to home page. However, the success message is not displayed when you edit the profile and click save. The success message is displayed when user clicks again on Edit Profile.**
+**Bug Report:**
+
+**Issue:** When editing the profile and clicking the "Save" button, the changes are successfully saved, but the success message is not displayed immediately. Instead, the success message only appears when the user clicks the "Edit Profile" button again.
+
+**Description:**
+
+- Upon editing the user's profile information, it's expected that a success message should be displayed to confirm that the changes have been saved successfully.
+- Currently, after clicking "Save," the page redirects to the home page without showing the success message.
+- The success message only becomes visible when the user goes back to the "Edit Profile" page, which can be confusing and doesn't provide real-time feedback.
+
+**Expected Behavior:**
+
+- After clicking the "Save" button when editing the profile, the success message should be displayed immediately to inform the user that their changes have been saved successfully.
+- The success message should be shown on the same page where the user initiated the profile editing process.
+
+**Steps to Reproduce:**
+
+1. Log in to the user profile.
+2. Navigate to the "Edit Profile" section.
+3. Make changes to the profile information.
+4. Click the "Save" button.
+5. Observe that the success message is not displayed.
+6. Click the "Edit Profile" button again to see the success message.
+
 
 ## Cart Page
 
@@ -792,6 +991,15 @@ By implementing these security measures, the current database design aims to pro
 - [x] Verify that the cart displays a list of items with their names, quantities, and total prices.
 - [x] Test the functionality to update item quantities and remove items from the cart.
 - [x] Confirm that the "Proceed to Checkout" button takes users to the checkout page.
+
+**Bug Report:**
+
+I noticed an issue while browsing on mobile devices where the cart summary headers are displayed with longer text, causing them to extend beyond the screen width. This results in a less than optimal user experience as it makes it difficult to view and navigate the cart summary.
+
+**Issue Description:**
+
+- On mobile screens, when items are added to the cart, the headers in the cart summary appear to be too long for the screen width.
+- The longer headers cause horizontal scrolling, which can be frustrating for users as it disrupts the overall mobile experience.
 
 ## Checkout Page
 
@@ -826,6 +1034,10 @@ By implementing these security measures, the current database design aims to pro
 - [x] Check for broken links or images throughout the website.
 - [x] Test the website's performance by loading pages with a reasonable amount of data.
 - [x] Confirm that the website's design is consistent and visually appealing.
+  
+---
+
+## Performance
 
 This manual testing checklist was completed. The website was tested on various devices and browsers to ensure compatibility and responsiveness. The website was also tested for performance and design consistency with Google Lighthouse and [GTmetrix](https://gtmetrix.com/). [Link for performance results](https://gtmetrix.com/reports/sip-home-a6dbdb394c52.herokuapp.com/RPc24nuw/).
 
@@ -835,49 +1047,128 @@ This manual testing checklist was completed. The website was tested on various d
 
 ---
 
-## Technologies
+## Validator testing
 
-### Frameworks, Libraries, and Programs Used
+**HTML Validation Process:**
 
-- **Django**: The project uses Django as the web framework.
-- **PostgreSQL**: The project uses PostgreSQL as the database.
-- **Heroku**: The project is deployed on Heroku.
-- **AWS S3**: The project uses AWS S3 to store static and media files.
-- **Stripe**: The project uses Stripe to handle payments.
-- **Bootstrap**: The project uses Bootstrap for styling.
-- **jQuery**: The project uses jQuery for interactivity.
-- **Font Awesome**: The project uses Font Awesome for icons.
-- **Git**: The project uses Git for version control.
-- **GitHub**: The project uses GitHub for version control.
-- **GitPod**: The project uses GitPod as the IDE.
-- **Justinmind and Photoshop**: The project uses Justinmind for wireframing.
-- **Lucidchart**: The project uses Lucidchart for database modeling.
-- **Gunicorn**: The project uses Gunicorn as the WSGI HTTP Server.
-- **PIP**: The project uses PIP as the package manager.
-- **Django Allauth**: The project uses Django Allauth for user authentication.
-- **Psycopg2**: The project uses Psycopg2 to connect to PostgreSQL.
-- **W3C Markup Validator**: The project uses W3C Markup Validator to validate HTML code.
-- **W3C CSS Validator**: The project uses W3C CSS Validator to validate CSS code.
-- **JSHint**: The project uses JSHint to validate JavaScript code.
-- **PEP8**: The project uses PEP8 to validate Python code.
-- **Chrome DevTools**: The project uses Chrome DevTools for testing and debugging.
-- **VSCode**: The project uses VSCode as the code editor.
-- **ElephantSQL**: The project uses ElephantSQL as the PostgreSQL database provider.
-- **Cloudinary**: The project uses Cloudinary to store images.
-- **SQLAlchemy**: The project uses SQLAlchemy to connect to PostgreSQL.
-- **asgiref**: ASGI (Asynchronous Server Gateway Interface) reference implementation.
-- **dj-database-url**: A Django utility for parsing database URLs from an environment variable.
-- **Favicon**: The project uses a favicon for improved user experience and branding.
+All pages have undergone validation using the W3 HTML Validator to ensure compliance with HTML standards.
+
+However, it's important to note that certain pages utilize Django's templating language code within the HTML files. As a result, these pages cannot be directly copied and pasted into the validator due to the presence of dynamic content generated by Django.
+
+By following these steps, you can accurately validate pages that contain Django templating language code or pages with login requirements or secured views.
+
+![html](docs/images/screenshots/html_error.png)
+---
+
+
+**Code Validation Feedback:**
+
+The Python code was checked using [Pythonchecker](pythonchecker.com) since the http://pep8online.com/ website was temporarily offline. The evaluation results indicate that the code appears to be in good shape without any major issues.
+
+Additionally, the code was formatted using Visual Studio Code (VS Code) with the assistance of Python checker tools. This helps maintain a consistent and organized codebase.
+
+**JavaScript Validation Feedback:**
+
+I ran the JavaScript code through JSHint, a JavaScript validator.
+It's worth noting that the functions were called via 'onclick' from the HTML elements themselves, confirming that these variables are indeed being used in code.
+
+Back to to js
+![back to top](docs/images/screenshots/back_to_top_js.png)
+
+Cart js
+
+![cart](docs/images/screenshots/cart_js.png)
+
+Lightbox js
+
+![lightbox](docs/images/screenshots/lightbox_js.png)
 
 ---
 
-### Languages Used:
+## Checking Website Responsiveness in Different Browsers
 
-- **HTML**: The project uses HTML to structure the content.
-- **CSS**: The project uses CSS to style the content.
-- **JavaScript**: The project uses JavaScript to add interactivity.
-- **Python**: The project uses Python to handle the backend functionality.
-- **Markdown**: The project uses Markdown to write the README.md file.
-- **JSON**: The project uses JSON to store data.
-- **SQL**: The project uses SQL to query the database.
--
+
+### Google Chrome
+
+1. **Open Chrome:** Launch Google Chrome on your computer.
+
+2. **Access Developer Tools:** Right-click anywhere on your webpage and select "Inspect" or press `Ctrl + Shift + I` (or `Cmd + Option + I` on Mac) to open the Chrome Developer Tools panel.
+
+3. **Toggle Device Toolbar:** In the Developer Tools panel, click the device icon (usually located at the top-left corner) or press `Ctrl + Shift + M` (or `Cmd + Option + M` on Mac) to toggle the Device Toolbar.
+
+4. **Choose Device:** Use the Device Toolbar to select various device presets or specify custom screen dimensions. This allows you to view your website as it would appear on different devices, such as smartphones, tablets, and desktops.
+
+5. **Test Responsiveness:** Interact with your website, and Chrome will automatically simulate the selected device's viewport. Ensure that your website adjusts correctly to different screen sizes and orientations.
+
+### Apple Safari
+
+1. **Open Safari:** Launch Safari on your Mac.
+
+2. **Enable Developer Tools:** Go to Safari Preferences (`Cmd + ,`) and click on the "Advanced" tab. Check the box that says "Show Develop menu in menu bar."
+
+3. **Access Responsive Design Mode:** In the Safari menu bar, click "Develop," and then select "Enter Responsive Design Mode." Alternatively, press `Cmd + Option + R`.
+
+4. **Select Device:** In Responsive Design Mode, you can choose from various device presets or enter custom dimensions to test your website's responsiveness.
+
+5. **Preview Responsiveness:** Interact with your website to see how it adapts to different screen sizes and orientations. Safari provides a live preview of your site's responsiveness.
+
+### Mozilla Firefox
+
+1. **Open Firefox:** Launch Mozilla Firefox on your computer.
+
+2. **Access Responsive Design Mode:** Right-click anywhere on your webpage and select "Inspect Element" or press `Ctrl + Shift + I` (or `Cmd + Option + I` on Mac) to open the Firefox Developer Tools.
+
+3. **Toggle Responsive Design Mode:** In the Developer Tools panel, click the responsive design icon (represented by two overlapping rectangles) or press `Ctrl + Shift + M` (or `Cmd + Option + M` on Mac) to toggle Responsive Design Mode.
+
+4. **Choose Device:** You can choose from predefined device sizes or specify custom dimensions to emulate various screen sizes and orientations.
+
+5. **Inspect Responsiveness:** Firefox will show your website in the selected viewport. Test how your site responds to different screen sizes by interacting with it.
+
+By following these steps in Chrome, Safari, and Firefox, you can thoroughly evaluate and fine-tune your website's responsiveness for a wide range of browsers and devices.
+
+---
+
+# Credits
+
+## Code
+
+### Star Rating
+
+Inspiration and part of the code for the star rating system was taken from [Medium](https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c), [mboostrap](https://mdbootstrap.com/docs/b4/jquery/plugins/rating/), [wildfish](https://django-star-ratings.readthedocs.io/en/latest/).
+
+### User Registration
+
+Inspiration and part of the code for User registration system was taken from [ordinarycoders](https://ordinarycoders.com/blog/article/django-user-register-login-logout), [Dennis Ivy](https://www.youtube.com/watch?v=tUqUdu0Sjyc) and Code Institute material.
+
+### Lightbox
+
+Inspiration and part of the code for Lightbox feature system was taken from [Lokesh Dhakar](http://lokeshdhakar.com/projects/lightbox2/).
+
+### Back to top
+
+Inspiration and part of the code for Back to top feature system was taken from [mboostrap](https://mdbootstrap.com/docs/standard/extended/back-to-top/)
+
+### Stripe
+
+Inspiration and part of the code for Stripe system integration was taken from [Mishel Shaji](https://www.geekinsta.com/integrate-stripe-with-django/)
+
+### Additional code sources
+
+- [Stack Overflow](https://stackoverflow.com/)
+- [W3Schools](https://www.w3schools.com/)
+- [Code Institute](https://codeinstitute.net/)
+- [Django Documentation](https://docs.djangoproject.com/en/3.2/)
+- [Bootstrap Documentation](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [Geekinsta](https://www.geekinsta.com/)
+- [Stripe](https://stripe.com/docs)
+- [Dennis Ivy](https://dennisivy.com)
+
+### Media
+
+Mockups were made using [Magic Mockups](http://magicmockups.com)
+- Image credit: Unsplash
+- Image credit: Startup Stock Photos
+- Image credit: Madebyvadim
+- Image credit: Firmbee
+
+Images used for the website is photo credited to [Simon Paske](http://sip.myportfolio.com) &copy;

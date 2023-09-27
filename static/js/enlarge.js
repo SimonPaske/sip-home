@@ -1,9 +1,9 @@
-const modal = document.getElementById("image-modal");
-const modalImage = document.getElementById("modal-image");
-const closeButton = document.querySelector(".close");
-const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
-const backButton = document.getElementById("back-button");
-const mainContentContainer = document.getElementById("main-content-container");
+let modal = document.getElementById("image-modal");
+let modalImage = document.getElementById("modal-image");
+let closeButton = document.querySelector(".close");
+let lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
+let backButton = document.getElementById("back-button");
+let mainContentContainer = document.getElementById("main-content-container");
 
 // Function to open the modal
 function openModal(imageSrc) {
@@ -22,7 +22,7 @@ function closeModal() {
 
 // Function to toggle the footer's visibility
 function toggleFooter(hide) {
-    const footer = document.getElementById("page-footer");
+    let footer = document.getElementById("page-footer");
     if (hide) {
         footer.classList.add("hidden");
     } else {
@@ -57,14 +57,14 @@ function previousImage() {
 
 // Function to update "Next" and "Previous" button visibility
 function updateButtons() {
-    const nextButton = document.getElementById("next-button");
-    const prevButton = document.getElementById("prev-button");
+    let nextButton = document.getElementById("next-button");
+    let prevButton = document.getElementById("prev-button");
     nextButton.style.display = currentIndex === lightboxTriggers.length - 1 ? "none" : "block";
     prevButton.style.display = currentIndex === 0 ? "none" : "block";
 }
 
-const nextButton = document.getElementById("next-button");
-const prevButton = document.getElementById("prev-button");
+let nextButton = document.getElementById("next-button");
+let prevButton = document.getElementById("prev-button");
 
 nextButton.addEventListener("click", nextImage);
 prevButton.addEventListener("click", previousImage);

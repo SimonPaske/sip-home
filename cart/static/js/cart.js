@@ -34,7 +34,6 @@ function handleButtonClick(button, actionMessage, successMessage) {
             successMessageElement.textContent = successMessage;
             document.body.appendChild(successMessageElement);
 
-            // Set a timeout to remove the success message after 5 seconds
             setTimeout(() => {
                 successMessageElement.remove();
             }, 10000);
