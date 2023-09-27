@@ -121,11 +121,11 @@ you can find website --> [here](https://sip-home-a6dbdb394c52.herokuapp.com)
   - [Overall Experience](#overall-experience-1)
   - [Performance](#performance)
   - [Validator testing](#validator-testing)
-  - [](#)
   - [Checking Website Responsiveness in Different Browsers](#checking-website-responsiveness-in-different-browsers)
     - [Google Chrome](#google-chrome)
     - [Apple Safari](#apple-safari)
     - [Mozilla Firefox](#mozilla-firefox)
+- [Future Improvements](#future-improvements)
 - [Credits](#credits)
   - [Code](#code)
     - [Star Rating](#star-rating)
@@ -133,6 +133,7 @@ you can find website --> [here](https://sip-home-a6dbdb394c52.herokuapp.com)
     - [Lightbox](#lightbox)
     - [Back to top](#back-to-top)
     - [Stripe](#stripe)
+    - [Django message tags and timing](#django-message-tags-and-timing)
     - [Additional code sources](#additional-code-sources)
     - [Media](#media)
 
@@ -960,6 +961,8 @@ To deploy the project, the following steps were taken:
 - [x] Edit the user's profile by modifying the name and email address and confirm that changes are saved successfully.
 - [x] Ensure that appropriate success messages are displayed after profile edits.
 
+---
+
 **Bug Report:**
 
 **Issue:** When editing the profile and clicking the "Save" button, the changes are successfully saved, but the success message is not displayed immediately. Instead, the success message only appears when the user clicks the "Edit Profile" button again.
@@ -984,6 +987,11 @@ To deploy the project, the following steps were taken:
 5. Observe that the success message is not displayed.
 6. Click the "Edit Profile" button again to see the success message.
 
+**Fix Description:**
+
+The issue was fixed by implementing JavaScript code that utilizes Django's messages tags and pop-up notification timing for disappearance. Now, after clicking "Save" when editing the profile, a success message is displayed in real-time to confirm the successful saving of changes. The message automatically disappears after a set duration, providing a more user-friendly experience.
+
+---
 
 ## Cart Page
 
@@ -991,6 +999,8 @@ To deploy the project, the following steps were taken:
 - [x] Verify that the cart displays a list of items with their names, quantities, and total prices.
 - [x] Test the functionality to update item quantities and remove items from the cart.
 - [x] Confirm that the "Proceed to Checkout" button takes users to the checkout page.
+
+---
 
 **Bug Report:**
 
@@ -1000,6 +1010,15 @@ I noticed an issue while browsing on mobile devices where the cart summary heade
 
 - On mobile screens, when items are added to the cart, the headers in the cart summary appear to be too long for the screen width.
 - The longer headers cause horizontal scrolling, which can be frustrating for users as it disrupts the overall mobile experience.
+
+**Suggested Fix:**
+
+The issue was fixed by making the following adjustments:
+
+- Removed one column from the cart summary table to reduce the width of the table.
+- Positioned the buttons "Remove" and "Add" in line with the quantity column to save horizontal space and ensure a better mobile user experience.
+
+---
 
 ## Checkout Page
 
@@ -1058,8 +1077,8 @@ However, it's important to note that certain pages utilize Django's templating l
 By following these steps, you can accurately validate pages that contain Django templating language code or pages with login requirements or secured views.
 
 ![html](docs/images/screenshots/html_error.png)
----
 
+---
 
 **Code Validation Feedback:**
 
@@ -1073,6 +1092,7 @@ I ran the JavaScript code through JSHint, a JavaScript validator.
 It's worth noting that the functions were called via 'onclick' from the HTML elements themselves, confirming that these variables are indeed being used in code.
 
 Back to to js
+
 ![back to top](docs/images/screenshots/back_to_top_js.png)
 
 Cart js
@@ -1082,6 +1102,10 @@ Cart js
 Lightbox js
 
 ![lightbox](docs/images/screenshots/lightbox_js.png)
+
+Message timeout js
+
+![message timeout js](docs/images/screenshots/msg_timeout_js.png)
 
 ---
 
@@ -1128,6 +1152,26 @@ By following these steps in Chrome, Safari, and Firefox, you can thoroughly eval
 
 ---
 
+# Future Improvements
+
+1. **Search Products Functionality**: Implement a search feature to allow users to search for products by name, description, or other relevant criteria.
+
+2. **Integration with Gelato for Printing and Delivery**: Connect the website with Gelato or a similar service to facilitate the printing and delivery of products, enabling a seamless user experience.
+
+3. **Categories Filter for Products**: Add a category filter to help users quickly narrow down their product selection, making it easier to find what they're looking for.
+
+4. **Order History**: Provide users with access to their order history, allowing them to view past orders, track shipments, and reorder items.
+
+5. **Password Reset Functionality**: Implement a password reset feature that enables users to reset their passwords securely in case they forget or need to change them.
+
+6. **Email Notifications for New Products and Password Changes**: Offer users the option to receive email notifications about new product arrivals and any changes made to their passwords, enhancing user engagement and security.
+
+7. **Profile Photo Upload for Customers**: Allow customers to personalize their profiles by uploading profile photos, creating a more personalized and visually appealing user experience.
+
+These improvements aim to enhance the functionality, user experience, and security of the website, providing a more comprehensive and user-friendly platform.
+
+---
+
 # Credits
 
 ## Code
@@ -1152,6 +1196,9 @@ Inspiration and part of the code for Back to top feature system was taken from [
 
 Inspiration and part of the code for Stripe system integration was taken from [Mishel Shaji](https://www.geekinsta.com/integrate-stripe-with-django/)
 
+### Django message tags and timing
+
+Inspiration and part of the code for Django message tags and timing was taken from [Stack Overflow](https://stackoverflow.com/questions/13932653/increase-displaying-time-of-django-messages)
 ### Additional code sources
 
 - [Stack Overflow](https://stackoverflow.com/)

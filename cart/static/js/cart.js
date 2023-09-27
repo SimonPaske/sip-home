@@ -12,7 +12,7 @@ function updateOrder(productId, action) {
         )
     }).then(response => response.json()).then(data => {
         location.reload();
-    }).catch(error => { // Display an error message
+    }).catch(error => {
         const errorMessage = document.createElement('div');
         errorMessage.classList.add('message', 'error-message');
         errorMessage.textContent = 'An error occurred. Please try again later.';
@@ -28,15 +28,10 @@ function handleButtonClick(button, actionMessage, successMessage) {
 
         if (user === 'AnonymousUser') {} else {
             updateOrder(productId, action);
-            // Display a success message
             const successMessageElement = document.createElement('div');
             successMessageElement.classList.add('message', 'success-message');
             successMessageElement.textContent = successMessage;
             document.body.appendChild(successMessageElement);
-
-            setTimeout(() => {
-                successMessageElement.remove();
-            }, 10000);
         }
     });
 }

@@ -60,6 +60,15 @@
 <br>
 <br>
 <br>
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 
 <div class="container">
     {% block content %}
@@ -125,5 +134,7 @@
         <script src="{% static 'js/enlarge.js' %}"></script>
         <script src="{% static 'js/csrf.js' %}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-        <script src="{% static 'js/back_top.js' %}"></script>      </body>
+        <script src="{% static 'js/back_top.js' %}"></script>
+        <script src="{% static 'js/msg_timeout.js' %}"></script>
+      </body>
 </html>

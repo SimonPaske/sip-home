@@ -41,7 +41,6 @@
     <th scope="col">Item</th>
     <th scope="col">Name</th>
     <th scope="col">Quantity</th>
-    <th></th>
     <th scope="col">Total</th>
   </tr>
 </thead>
@@ -60,13 +59,9 @@
     <td>
       <div class="quantity-container">
         <p>{{ item.quantity }}</p>
-      </div>
-    </td>
-    <td class="quantity-btn">
-      <div class="cart-item">
         <button data-product="{{ item.product.id }}" class="btn btn-danger remove-btn remove_from_cart" type="button" name="remove-from-cart" data-action="remove"> &#x290B; </button>
         <button data-product="{{ item.product.id }}" class="btn btn-success add-btn add_to_cart" type="button" name="add-to-cart" data-action="add"> &#x290A; </button>
-        <button data-product="{{ item.product.id }}" class="btn btn-danger remove-btn remove_from_cart" type="button" name="remove-from-cart" data-action="delete">Remove</button>
+        <button data-product="{{ item.product.id }}" class="btn btn-dark remove-btn remove_from_cart" type="button" name="remove-from-cart" data-action="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
       </div>
     </td>
     <td><strong>{{ item.get_total|floatformat:2 }} DKK</strong></td>
