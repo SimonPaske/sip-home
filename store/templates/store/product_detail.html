@@ -18,9 +18,9 @@
         <p>{{ product.description }}</p>
         <p>Price: {{ product.price|floatformat:2 }} DKK</p>
         <div class="d-grid gap-2 d-md-block">
-          <a class="btn btn-outline-dark" href="{% url 'cart' %}"
-            >Back to Cart</a
-          >
+          <a class="btn btn-outline-dark" href="{% url 'cart' %}">
+            Back to Cart
+          </a>
           <button
             data-product="{{ product.id }}"
             data-action="add"
@@ -30,9 +30,10 @@
           >
             Add to cart
           </button>
-          <a class="btn btn-warning" href="{% url 'store' %}"
-            >Continue Shopping <span>➤</span></a
-          >
+          <a class="btn btn-warning" href="{% url 'store' %}">
+            Continue Shopping
+            <span>➤</span>
+          </a>
         </div>
       </div>
     </div>
@@ -105,13 +106,13 @@
     <a
       href="{% url 'add_product_review' product.id %}"
       class="btn btn-outline-primary"
-      >Leave Review</a
     >
+      Leave Review
+    </a>
   </div>
 </div>
 <br />
 <br />
 <br />
 
-<!-- Add JavaScript Here -->
 {% endblock content %}

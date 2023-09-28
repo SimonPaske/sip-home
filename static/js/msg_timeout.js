@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    displayDjangoMessagesWithTiming(1);
+    displayDjangoMessagesWithTiming(5);
 
 });
 
-function displayDjangoMessagesWithTiming(durationInSeconds = 3) {
+function displayDjangoMessagesWithTiming(durationInSeconds = 5) {
     const messages = document.querySelectorAll('.alert');
 
     messages.forEach(function (message) {
@@ -32,5 +32,5 @@ function displayDjangoMessage(message, tag, durationInSeconds) {
 
     setTimeout(() => {
         messageElement.remove();
-    }, durationInSeconds * 3000);
+    }, durationInSeconds * 5000);
 }

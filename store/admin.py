@@ -6,8 +6,9 @@ from .models import *
 # Register your models here.
 @admin.register(Product)
 class ProductAdmin(SummernoteModelAdmin):
-    list_display = ("id", "name", "price", "category")
-    search_fields = ["id", "name", "order", "transaction_id"]
+    list_display = ("id", "name", "price", "category", "description", "digital")
+    search_fields = ("id", "name", "category", "description")
+
 
 
 @admin.register(Order)
