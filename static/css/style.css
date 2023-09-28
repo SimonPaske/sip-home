@@ -186,7 +186,7 @@ img {
     z-index: 1;
 }
 
-.error-message {
+.error-message, .alert-error {
     border-color: #ff0000;
     background-color: #ffeeee;
     color: #ff0000;
